@@ -13,14 +13,14 @@
 :imagesdir: images
 :front-cover-image: images/default-cover.png
 :toc-title: Sumário
-:stylesheet: style.css
+//:stylesheet: style.css
 
 :toc:
 
 :leveloffset: +1
 
-//include::00-prefacio.adoc[]
-//
+include::00-prefacio.adoc[]
+
 //include::01-introducao.adoc[]
 //
 //include::02-estrutura.adoc[]

@@ -1,0 +1,7 @@
+:chapter: prefacio
+= Prefácio
+:page-partial:
+
+Algumas palavras
+
+Victor Emanuel Perticarrari Osório
