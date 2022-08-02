@@ -33,7 +33,7 @@ jobs:
         id: adocbuild
         uses: tonynv/asciidoctor-action@master
         with:
-          program: "asciidoctor -D docs --backend=html5 -o index.html README.adoc"
+          program: "asciidoctor -D docs --backend=html5 -o ./_site/index.html README.adoc"
 
   # Deployment job
   deploy:
