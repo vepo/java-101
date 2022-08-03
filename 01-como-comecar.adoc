@@ -27,13 +27,13 @@ Quando a computação eletrônica começou a se popularizar, existiam inúmeras 
 
 [.text-center]
 .Olha o código da ignição da Apolo 11! 😲
-image::cap-01/apollo11.png[align=center]
+image::cap-01/apollo11.png[id=apollo11, align="center"]
 
 Com o tempo as máquinas ganharam um padrão, tanto de processadores como de Opcodes. Hoje sabemos que existe um processador, um barramento, memória, registradores, etc... Esses componentes variam um pouco de arquitetura pra arquitetura, mas eles continuam seguindo um padrão. Abaixo você pode ver a documentação de um opcode.
 
 [.text-center]
 .Exemplo de Opcode
-image::cap-01/opcode.png[align=center]
+image::cap-01/opcode.png[id=opcode, align="center"]
 
 _— Cara qual a relação disso com Java?_
 
@@ -88,7 +88,7 @@ Com o ItelliJ, selecione Novo Projeto e você verá a tela abaixo. Você precisa
 
 [.text-center]
 .Tela de novo Projeto
-image::cap-01/intellij-novo-projeto-1.png[align=center]
+image::cap-01/intellij-novo-projeto-1.png[id=intellij-novo-projeto-1, align="center"]
 
 
 Na tela acima, temos algumas opções que são importantes. A primeira delas é que você pode escolher o sistema de build do seu projeto. O IntelliJ já tem um sistema de build próprio, mas você pode usar Maven ou Gradle. A segunda opção é que você pode escolher a versão da JDK que você vai usar. A JDK é a ferramenta que te possibilitará desenvolver Java, ela contém todos os programas para compilar seu código, executar, debugar e muitas outras ferramentas que podemos falar mais a diante. O IntelliJ permite você selecionar a JDK e fazer o download dela. Eu recomendo você usar a versão mais recente e escolher a Oracle OpenJDK como vendor. Depois você pode escolher já inicializar esse projeto como um repositório git (_Create Git repository_) ou iniciar o projeto com um código de exemplo (_Add sample code_).
@@ -97,19 +97,19 @@ Depois de criado o projeto, você terá que adicionar uma classe ao projeto. Tod
 
 [.text-center]
 .Criando nova classe
-image::cap-01/intellij-novo-projeto-2.png[align=center]
+image::cap-01/intellij-novo-projeto-2.png[id=intellij-novo-projeto-2, align="center"]
 
 Ao selecionar uma nova classe, será necessário dar um nome a ela. O nome de uma classe é o que chamamos de _Fully Qualified Name_, ele é composto pelo nome do pacote e o real nome da classe, no caso estou criando o pacote `io.vepo.helloworld` e a classe `HelloWorld`. Vamos falar mais sobre classes e pacotes quando formos falar de Orientação a Objetos (eu prometo falar disso, tenham paciência!).
 
 [.text-center]
 .Dando nome a classe
-image::cap-01/intellij-novo-projeto-3.png[align=center]
+image::cap-01/intellij-novo-projeto-3.png[id=intellij-novo-projeto-3, align="center"]
 
 Criada a classe, vou te apresentar uma funcionalidade muito importante. Abra o editor de texto posicione o cursor para editar o texto dentro da classe, adicione o texto `ma` e use a funcionalidade mais fabulosa que se chama **auto-complete** selecionando **CTRL+SPACE**! Magicamente a IDE vai compreender qual é o contexto e vai propor o que você deve escrever. Agora siga para o último _snippet_ desse post. (snippet significa trecho, é normalmente um significado para um trecho de código que serve de exemplo simples).
 
 [.text-center]
 .Criando método main
-image::cap-01/intellij-novo-projeto-4.png[align=center]
+image::cap-01/intellij-novo-projeto-4.png[id=intellij-novo-projeto-4, align="center"]
 
 ==== Usando o Eclipse
 
@@ -121,7 +121,7 @@ Assim, ao iniciar o Workspace do Eclipse para Java você verá a opção para cr
 
 [.text-center]
 .Criar novo projeto - Atalho
-image::cap-01/eclipse-novo-projeto-1.png[align=center]
+image::cap-01/eclipse-novo-projeto-1.png[id=eclipse-novo-projeto-1, align="center"]
 
 Ao selecionar, você entrará no Wizard de criação de um novo projeto. Semelhantemente ao IntelliJ, você terá que escolher um nome para o projeto e um local, a diferença é que no Eclipse o local padrão é o workspace. Você não precisa criar o projeto no workspace, você pode usar qualquer diretório, mas será no workspace que o Eclipse salvará alguns arquivos que definem como você está usando o mesmo, por isso caso você tenha mais de um contexto de desenvolvimento, você pode usar vários workspaces e trocar quando necessitar trocar de contextos. Por exemplo, você tem o workspace do trabalho e o workspace da faculdade, ou um workspace para cada projeto que você está trabalhando.
 
@@ -129,7 +129,7 @@ Você também pode selecionar a JDK que vai usar. Eu recomendo selecionar **Fini
 
 [.text-center]
 .Criar novo projeto - Wizard
-image::cap-01/eclipse-novo-projeto-2.png[align=center]
+image::cap-01/eclipse-novo-projeto-2.png[id=eclipse-novo-projeto-2, align="center"]
 
 Da mesma forma que o IntelliJ você tem que selecionar o botão direito do mouse na pasta `src` e depois selecione **New → Java Class**.
 
@@ -137,13 +137,13 @@ Da mesma forma que o IntelliJ você tem que selecionar o botão direito do mouse
 
 [.text-center]
 .Criando classe - Atalho
-image::cap-01/eclipse-novo-projeto-3.png[align=center]
+image::cap-01/eclipse-novo-projeto-3.png[id=eclipse-novo-projeto-3, align="center"]
 
 E por fim dar um nome a classe, mas diferente do IntelliJ, o Eclipse dá mais liberdade para criar a classe, como já adicionar o método `main`.
 
 [.text-center]
 .Criando classe - Wizard
-image::cap-01/eclipse-novo-projeto-4.png[align=center]
+image::cap-01/eclipse-novo-projeto-4.png[id=eclipse-novo-projeto-4, align="center"]
 
 Com a classe, você também pode usar o **auto-complete**. Eu pessoalmente acho essa funcionalidade melhor no Eclipse que no IntelliJ. Aliás, se você usa VS Code, você está usando essa funcionalidade porque o VS Code usa o servidor de código do Eclipse.
 
