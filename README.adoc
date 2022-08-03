@@ -15,7 +15,6 @@
 :toc: left
 :figure-caption: Figura
 :leveloffset: +1
-//:stylesheet: style.css
 
 include::00-prefacio.adoc[]
 
