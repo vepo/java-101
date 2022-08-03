@@ -422,9 +422,9 @@ No Java tempos três operadores booleanos `&&`, `||` e `!`
 [options="header"]
 |=====================================================================================
 | Operador  | Descrição  | Exemplo     | Significado                                  
-| `&&`      | E          | `a && b`    | `true` somente se `a` e `b` forem verdadeiras
-| `\|\|`    | OU         | `a \|\| b`  | `true` qualquer um dos valores for verdadeiro
-| `!`       | Negação    | `!a`        | `true` se `a` for `false e vice versa        
+^| `&&`      ^| E          ^| `a && b`    | `true` somente se `a` e `b` forem verdadeiras
+^| `\|\|`    ^| OU         ^| `a \|\| b`  | `true` qualquer um dos valores for verdadeiro
+^| `!`       ^| Negação    ^| `!a`        | `true` se `a` for `false e vice versa        
 |=====================================================================================
 
 === 13. Operadores Binários
