@@ -1,7 +1,7 @@
 = Java 101
 Victor Osório
-:series-name: Ética no trabalho
-:series-volume: 1
+:series-name: Back-end Roadmap
+:series-volume: 2
 :doctype: book
 :epub-chapter-level: 2
 :producer: Victor Osório
@@ -12,7 +12,7 @@ Victor Osório
 :keywords: Java
 :language: asciidoc
 :imagesdir: images
-:front-cover-image: images/default-cover.png
+:front-cover-image: images/cover.png
 :toc: left
 :toc-title: Sumário
 :figure-caption: Figura

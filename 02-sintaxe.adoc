@@ -45,17 +45,17 @@ Como já falamos anteriormente, o Java é uma linguagem compilada. Isso signific
 
 Abaixo eu listo todas as estruturas que vamos detalhar resumidamente. Ao lado dela temos a documentação oficial (para versão 8) com a especificação formal. Se você não conseguir entender a documentação, não tem problema. Para essa listagem eu vou tomar a liberdade de traduzir os nomes das estruturas, mas é por motivo meramente didático, nunca use esse nome, apenas o nome em inglês. A tradução serve para você ver que tem uma lógica na nomenclatura, é como se o código fosse um tipo de linguagem verbalizável.
 
-1. Bloco ([Block](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.2))
-2. Declaração ([Statement](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.5))
-3. Comentário ([Comments](https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.7))
-4. Se ([if](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.9))
-5. Enquanto ([while](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.11))
-6. Faça enquanto ([do-while](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.13))
-7. Para ([for](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.14))
-8. Desvio ([switch](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.11))
-9. Quebra e continua ([break](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.15) e [continue](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.16))
-10. Lance ([throw](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.18))
-11. Sincronizado ([synchronized](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.19))
+1. Bloco (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.2[Block])
+2. Declaração (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.5[Statement])
+3. Comentário (https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.7[Comments])
+4. Se (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.9[if])
+5. Enquanto (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.11[while])
+6. Faça enquanto (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.13[do-while])
+7. Para (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.14[for])
+8. Desvio (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.11[switch])
+9. Quebra e continua (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.15[break] e https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.16[continue])
+10. Lance (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.18[throw])
+11. Sincronizado (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.19[synchronized])
 12. Operadores Lógicos
 13. Operadores Binários
 14. Operadores Matemáticos
@@ -127,7 +127,7 @@ metodo2();
 metodo5();
 ----
 
-Uma das grandes funcionalidades do Java é permitir código como documentação oficial. É o famoso [Javadoc](https://docs.oracle.com/javase/8/docs/api/overview-summary.html) que é gerado a partir do seu código. Mas o Javadoc é um tipo de comentário especifico que fica imediatamente antes da classe, dos métodos ou de um campo e é começado com `/**`. Um Javadoc segue uma linguagem de marcação que pode ser muito útil em alguns projetos. A vantagem de se usar o Javadoc, é que além dele poder ser exportado em HTML, as IDEs o utilizam. Então use-o.
+Uma das grandes funcionalidades do Java é permitir código como documentação oficial. É o famoso https://docs.oracle.com/javase/8/docs/api/overview-summary.html[Javadoc] que é gerado a partir do seu código. Mas o Javadoc é um tipo de comentário especifico que fica imediatamente antes da classe, dos métodos ou de um campo e é começado com `/**`. Um Javadoc segue uma linguagem de marcação que pode ser muito útil em alguns projetos. A vantagem de se usar o Javadoc, é que além dele poder ser exportado em HTML, as IDEs o utilizam. Então use-o.
 
 Agora que você aprendeu a comentar, vamos aprender sobre o que comentar? Comentários são informações auxiliar ao código. Isso significa que você não precisa comentar o que está no código, mas a informação que falta ao código. Não é o **como**, mas o **porque** do código. Eu gosto de comentar pressupostos e escolhas arquiteturais porque em alguns meses eu não vou lembrar e outra pessoa que pegar meu código também não vai lembrar.
 
@@ -222,6 +222,7 @@ switch (x) {
 
 O que aconteceria se o valor de `x` for igual a 3? Seriam executados os blocos de 3 até o `default`.
 
+[source]
 ----
 É maior ou igual a 3!
 É maior ou igual a 4!
@@ -406,7 +407,7 @@ class Concorrente {
 }
 ----
 
-Para que a sincronia seja bem elaborada, devem ser usados também os métodos `wait`, `notify` e `notifyAll`. Mas nós veremos como isso deve ser feito mais a frente, caso você precise lidar com valores compartilhados, prefira usar [`AtomicReference`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReference.html) ou outras classes do pacote [`java.util.concurrent.atomic`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html).
+Para que a sincronia seja bem elaborada, devem ser usados também os métodos `wait`, `notify` e `notifyAll`. Mas nós veremos como isso deve ser feito mais a frente, caso você precise lidar com valores compartilhados, prefira usar https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReference.html[`AtomicReference`] ou outras classes do pacote https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html[`java.util.concurrent.atomic`].
 
 === 12. Operadores Lógicos
 
@@ -418,37 +419,42 @@ Como vimos no uso do `if`, devemos sempre definir um valor booleano, mas as veze
 
 No Java tempos três operadores booleanos `&&`, `||` e `!`
 
-| Operador | Descrição | Exemplo  | Significado                                   |
-|:--------:|-----------|----------|-----------------------------------------------|
-| `&&`     | E         | `a && b` | `true` somente se `a` e `b` forem verdadeiras |
-| `||`     | OU        | `a || b` | `true` qualquer um dos valores for verdadeiro |
-| `!`      | Negação   | `!a`     | `true` se `a` for `false e vice versa         |
+[options="header"]
+|=====================================================================================
+| Operador  | Descrição  | Exemplo     | Significado                                  
+| `&&`      | E          | `a && b`    | `true` somente se `a` e `b` forem verdadeiras
+| `\|\|`    | OU         | `a \|\| b`  | `true` qualquer um dos valores for verdadeiro
+| `!`       | Negação    | `!a`        | `true` se `a` for `false e vice versa        
+|=====================================================================================
 
 === 13. Operadores Binários
 
 Operadores binários realizam operações binárias. Para entender como funcionam operações binárias é preciso entender que toda informação é armazenada em formato binário, isso significa que o número `6544` é o mesmo valor de `0b0001100110010000` e `0x1990`.
 
-| Operador | Descrição |
-|:--------:|-------------|
-| `<<` | Translada os bits para esquerda  |
-| `>>` | Translada os bits para a direita |
-| `&`  | Faz a operação E bit a bit   |
-| `|`  | Faz a operação OU bit a bit  |
-| `^`  | Faz a operação XOU bit a bit |
-| `~`  | Inverte (complemento) os valores dos bits |
-
+[options="header"]
+|======================================================
+| Operador  | Descrição                                
+| `<<`      | Translada os bits para esquerda          
+| `>>`      | Translada os bits para a direita         
+| `&`       | Faz a operação E bit a bit               
+| `\|`      | Faz a operação OU bit a bit              
+| `^`       | Faz a operação XOU bit a bit             
+| `~`       | Inverte (complemento) os valores dos bits
+|======================================================
 
 === 14. Operadores Matemáticos
 
 Operadores matemáticos realizam operações matemáticas básicas.
 
-| Operador | Descrição |
-|:--------:|-------------|
-| + | Operador aditivo (também usado para concatenação de String) |
-| - | Operador de subtração |
-| * | Operador de multiplicação |
-| / | Operador de divisão |
-| % | Operador restante |
+[options="header"]
+|========================================================================
+| Operador  | Descrição                                                  
+| +         | Operador aditivo (também usado para concatenação de String)
+| -         | Operador de subtração                                      
+| *         | Operador de multiplicação                                  
+| /         | Operador de divisão                                        
+| %         | Operador restante                                          
+|========================================================================
 
 === 15. Operadores Unários
 

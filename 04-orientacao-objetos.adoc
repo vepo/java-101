@@ -170,14 +170,17 @@ No primeiro trecho de código tempo a declaração da classe `Gato` no pacote `o
 
 A segunda coisa que vamos detalhar nesse trecho de código são os modificadores de acesso. Como disse uma linguagem orientada a objetos é usada para se encapsular detalhes, logo os modificadores de acesso servem para definir quem pode acessar o quê. Eles podem ser aplicados para Classes, Métodos e Campos e existem os seguintes modificadores de acesso.
 
-| Tipo | token | Descrição |
-|------|-------|-----------|
-| Package Private | - | Define que o elemento será acessível dentro do pacote. Esse é o modificador padrão, isso significa que nesse caso pode ser omitido. |
-| Privado | `private` | Define que o elemento só pode ser acessado dentro da própria classe. |
-| Protegido | `protected` | Define que o elemento é acessível dentro do mesmo pacote ou através de herança. |
-| Público | `public` | Define que o elemento é acessível em qualquer contexto. |
-| Final | `final` | Se aplicada a classe, ela não poderá ser estendida. Se aplicada a um campo ele não poderá ter seu valor alterado. Se aplicado a um método, ele não poderá ser reimplementado em uma classe que herda ele. |
-| Estático | `static` | Pode ser usado tanto em campos como em classes internas. Se usado no campo, ele vai ter apenas um valor e está associado a classe. Campos não estáticos são associados a objetos. Se aplicado a classes internas, ela não dependerá de um objeto. |
+[options="header"]
+|====================================================================================================================================================================================================================================================================================
+| Tipo             | token        | Descrição                                                                                                                                                                                                                                        
+| Package Private  | -            | Define que o elemento será acessível dentro do pacote. Esse é o modificador padrão, isso significa que nesse caso pode ser omitido.                                                                                                              
+| Privado          | `private`    | Define que o elemento só pode ser acessado dentro da própria classe.                                                                                                                                                                             
+| Protegido        | `protected`  | Define que o elemento é acessível dentro do mesmo pacote ou através de herança.                                                                                                                                                                  
+| Público          | `public`     | Define que o elemento é acessível em qualquer contexto.                                                                                                                                                                                          
+| Final            | `final`      | Se aplicada a classe, ela não poderá ser estendida. Se aplicada a um campo ele não poderá ter seu valor alterado. Se aplicado a um método, ele não poderá ser reimplementado em uma classe que herda ele.                                        
+| Estático         | `static`     | Pode ser usado tanto em campos como em classes internas. Se usado no campo, ele vai ter apenas um valor e está associado a classe. Campos não estáticos são associados a objetos. Se aplicado a classes internas, ela não dependerá de um objeto.
+|====================================================================================================================================================================================================================================================================================
+
 
 Ainda existem dois mais dois modificadores (`volatile` e `transiente`), mas eles não são importantes quando falamos de OO. `transiente` será importante quando falarmos de serialização e `volatile` quando falarmos de threads. Dos outros, podemos agrupar o `private`, `protected`, `public` e a ausência de um desses, pois eles são mutualmente excludentes.
 

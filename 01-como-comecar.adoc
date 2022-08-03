@@ -207,9 +207,9 @@ Eu nunca tinha usado o Gradle e ele me parece bem mais fácil que o Maven. Você
 
 ==== Usando o Maven
 
-> **Aviso**
->
-> Apesar de Maven usar XML, não se sinta intimidado. Eu deixe um exemplo com comentários. Caso você ainda ache difícil, manda um feedback aí com a sua dificuldade pelo twitter para https://twitter.com/vepo[@vepo].
+.Aviso
+[sidebar]
+Apesar de Maven usar XML, não se sinta intimidado. Eu deixe um exemplo com comentários. Caso você ainda ache difícil, manda um feedback aí com a sua dificuldade pelo twitter para https://twitter.com/vepo[@vepo].
 
 Com o Maven você pode facilmente criar um projeto Java e compilar ele independente de IDE. O Maven também vai se encarregará de encontrar todas as dependências em suas versões e dependências. Então para criar um projeto Java basta criar um arquivo `pom.xml` e um arquivo Java, como na estrutura abaixo.
 
@@ -224,7 +224,6 @@ Com o Maven você pode facilmente criar um projeto Java e compilar ele independe
 │                   └── helloworld
 │                       └── HelloWorld.java
 └── pom.xml
-```
 ----
 
 Para quem não conhece o Maven (_dê uma olhada nesse https://github.com/dev-roadmap/backend-roadmap/blob/main/caso-de-uso-00-configurando-um-projeto-quarkus.md[simples tutorial]_), ele vai gerenciar a build do seu projetos Java. O arquivo `pom.xml` vai conter as informações básicas do projeto e as dependências. Você pode achar estranha a estrutura de diretórios, mas ela é bastante útil para evitar configurações. O Maven atua por um padrão chamado https://pt.wikipedia.org/wiki/Conven%C3%A7%C3%A3o_sobre_configura%C3%A7%C3%A3o[Convenção sobre configuração], ao invés de colocar todas as configurações do projeto, basta seguir essa regrinha básica de estrutura de diretórios.

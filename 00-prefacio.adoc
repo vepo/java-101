@@ -12,4 +12,5 @@ algum conteúdo sobre computação.
 
 Espero que você aproveite esse material.
 
-Victor Emanuel Perticarrari Osório
+[.text-right]
+_Victor Emanuel Perticarrari Osório_
