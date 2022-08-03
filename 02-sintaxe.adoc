@@ -47,8 +47,8 @@ Como já falamos anteriormente, o Java é uma linguagem compilada. Isso signific
 
 Abaixo eu listo todas as estruturas que vamos detalhar resumidamente. Ao lado dela temos a documentação oficial (para versão 8) com a especificação formal. Se você não conseguir entender a documentação, não tem problema. Para essa listagem eu vou tomar a liberdade de traduzir os nomes das estruturas, mas é por motivo meramente didático, nunca use esse nome, apenas o nome em inglês. A tradução serve para você ver que tem uma lógica na nomenclatura, é como se o código fosse um tipo de linguagem verbalizável.
 
-1. Bloco (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.2[Block])
-2. Declaração (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.5[Statement])
+<<cap-03-bloco>>
+<<cap-02-declaracao>>
 3. Comentário (https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.7[Comments])
 4. Se (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.9[if])
 5. Enquanto (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.11[while])
@@ -65,7 +65,8 @@ Abaixo eu listo todas as estruturas que vamos detalhar resumidamente. Ao lado de
 16. Cast
 17. Operador condicional
 
-=== 1. Bloco
+[#cap-02-bloco]
+=== 1. Bloco (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.2[Block])
 
 Um bloco de código é uma estrutura que pode ser tanto obrigatória quanto opcional. Essa estrutura é definida `{}` e dentro desse bloco teremos um novo escopo de variáveis. Isso significa que toda variável definida dentro de um bloco será conhecida apenas por aquele block e todo bloco definido dentro dele.
 
@@ -96,7 +97,8 @@ public class HelloWorldSintaxe { // B1
 
 Se você começar a brincar com esse código, vai ver que a `variaevel2` só pode ser usada dentro do `B4`. Isso é o que chamamos de escopo, ao finalizar a execução de `B4` ela é completamente desnecessária e poderá ser eliminada da memória. 
 
-=== 2. Declaração
+[#cap-02-declaracao]
+=== 2. Declaração (https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.5[Statement])
 
 Toda estrutura Java é uma declaração e toda declaração tem significado. Declarações em Java devem ser separadas por `;` ou devem conter um Bloco de código. Tudo que devemos entender de uma declaração é que ela tem um significado e que elas são executadas em sequencia.
 
