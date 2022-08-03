@@ -27,13 +27,13 @@ Quando a computação eletrônica começou a se popularizar, existiam inúmeras 
 
 [#apolo11] 
 .Olha o código da ignição da Apolo 11! 😲
-image::images/apollo11.png[]
+image::cap-01/apollo11.png[]
 
 Com o tempo as máquinas ganharam um padrão, tanto de processadores como de Opcodes. Hoje sabemos que existe um processador, um barramento, memória, registradores, etc... Esses componentes variam um pouco de arquitetura pra arquitetura, mas eles continuam seguindo um padrão. Abaixo você pode ver a documentação de um opcode.
 
 [#opcode] 
 .Exemplo de Opcode
-image::images/opcode.png[]
+image::cap-01/opcode.png[]
 
 _— Cara qual a relação disso com Java?_
 
@@ -63,7 +63,7 @@ Java Beans é uma especificação que deu origem ao que conhecemos hoje como Jak
 
 === Instalando tudo...
 
-Não gaste tempo procurando cada programa... nem mesmo o Java. Você precisa de apenas uma coisa: o [SDKMan!](https://sdkman.io/). Com ele é possível instalar qualquer versão de Java que você deseja e algumas outras ferramentas como vamos citar mais a frente. 
+Não gaste tempo procurando cada programa... nem mesmo o Java. Você precisa de apenas uma coisa: o https://sdkman.io/[SDKMan!]. Com ele é possível instalar qualquer versão de Java que você deseja e algumas outras ferramentas como vamos citar mais a frente. 
 
 Também recomendo ter uma boa linha de comando. Se você usa Windows... Errado! Brincadeira! hehehe Você pode usar Windows, tanto que eu uso Windows (não por livre e espontânea vontade). No Windows você pode usar o Git Bash que é um porte do MinGW que por sua vez é um porte dos programas GNU para Windows.
 
@@ -74,7 +74,7 @@ Logo em resumo, o que você precisa é:
 * SDKMan!
 * Maven ou Gradle
 * Java
-* Uma boa IDE ([Eclipse](https://www.eclipse.org/downloads/), [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/download/#section=windows) ou [VS Code](https://code.visualstudio.com/download))
+* Uma boa IDE (https://www.eclipse.org/downloads/[Eclipse], https://www.jetbrains.com/pt-br/idea/download/#section=windows[IntelliJ IDEA] ou https://code.visualstudio.com/download[VS Code])
 
 === Construindo meu primeiro programa Java
 
@@ -86,19 +86,30 @@ Se você quiser aprender, recomendo abrir sua IDE preferida e criar um projeto J
 
 Com o ItelliJ, selecione Novo Projeto e você verá a tela abaixo. Você precisa adicionar o nome do projeto (_Name_) e o local em que deseja criar o projeto (_Location_). Eu recomendo você ter uma pasta separada para todos os seus projetos. 
 
-![Tela de novo Projeto](/assets/images/java/intellij-novo-projeto-1.png)
+[#intellij-novo-projeto-1] 
+.Tela de novo Projeto
+image::cap-01/intellij-novo-projeto-1.png[]
+
 
 Na tela acima, temos algumas opções que são importantes. A primeira delas é que você pode escolher o sistema de build do seu projeto. O IntelliJ já tem um sistema de build próprio, mas você pode usar Maven ou Gradle. A segunda opção é que você pode escolher a versão da JDK que você vai usar. A JDK é a ferramenta que te possibilitará desenvolver Java, ela contém todos os programas para compilar seu código, executar, debugar e muitas outras ferramentas que podemos falar mais a diante. O IntelliJ permite você selecionar a JDK e fazer o download dela. Eu recomendo você usar a versão mais recente e escolher a Oracle OpenJDK como vendor. Depois você pode escolher já inicializar esse projeto como um repositório git (_Create Git repository_) ou iniciar o projeto com um código de exemplo (_Add sample code_).
 
 Depois de criado o projeto, você terá que adicionar uma classe ao projeto. Todo programa Java precisa de um método de entrada chamado `main`. Apesar de muitos criticarem essa limitação, isso era comum quando o Java foi desenvolvido. Hoje, na verdade, o Java não tem essa limitação, você pode usar o https://cr.openjdk.java.net/~rfield/tutorial/JShellTutorial.html[JShell] e importar um arquivo `jsh`. Para criar sua primeira classe, selecione o botão direito do mouse na pasta `src` e depois selecione **New → Java Class**.
 
-![Criando nova classe](/assets/images/java/intellij-novo-projeto-2.png)
+[#intellij-novo-projeto-2] 
+.Criando nova classe
+image::cap-01/intellij-novo-projeto-2.png[]
 
 Ao selecionar uma nova classe, será necessário dar um nome a ela. O nome de uma classe é o que chamamos de _Fully Qualified Name_, ele é composto pelo nome do pacote e o real nome da classe, no caso estou criando o pacote `io.vepo.helloworld` e a classe `HelloWorld`. Vamos falar mais sobre classes e pacotes quando formos falar de Orientação a Objetos (eu prometo falar disso, tenham paciência!).
 
-![Dando nome a classe](/assets/images/java/intellij-novo-projeto-3.png)
+[#intellij-novo-projeto-3] 
+.Dando nome a classe
+image::cap-01/intellij-novo-projeto-3.png[]
 
 Criada a classe, vou te apresentar uma funcionalidade muito importante. Abra o editor de texto posicione o cursor para editar o texto dentro da classe, adicione o texto `ma` e use a funcionalidade mais fabulosa que se chama **auto-complete** selecionando **CTRL+SPACE**! Magicamente a IDE vai compreender qual é o contexto e vai propor o que você deve escrever. Agora siga para o último _snippet_ desse post. (snippet significa trecho, é normalmente um significado para um trecho de código que serve de exemplo simples).
+
+[#intellij-novo-projeto-4] 
+.Criando método main
+image::cap-01/intellij-novo-projeto-4.png[]
 
 ==== Usando o Eclipse
 
