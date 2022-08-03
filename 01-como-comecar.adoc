@@ -23,13 +23,17 @@ Muitos tendem a querer comparar Java com outras linguagens. Alguns tem a pretens
 
 Primeiro para entender melhor vamos tentar definir o que é uma linguagem de programação...
 
-Quando a computação eletrônica começou a se popularizar, existiam inúmeras plataformas e cada uma delas haviam um conjunto de instruções. Para desenvolver qualquer software era preciso conhecer o hardware e o conjunto de instruções que existem naquele hardware. Quer ver um exemplo? Tenta navegar no [código da Apollo 11](https://github.com/chrislgarry/Apollo-11) para tentar entender algo. É praticamente impossível, até mesmo para quem já desenvolveu em Assembly. Isso acontece porque o conjunto de instruções e a arquitetura do hardware são completamente diferentes das máquinas que temos hoje.
+Quando a computação eletrônica começou a se popularizar, existiam inúmeras plataformas e cada uma delas haviam um conjunto de instruções. Para desenvolver qualquer software era preciso conhecer o hardware e o conjunto de instruções que existem naquele hardware. Quer ver um exemplo? Tenta navegar no https://github.com/chrislgarry/Apollo-11[código da Apollo 11] para tentar entender algo. É praticamente impossível, até mesmo para quem já desenvolveu em Assembly. Isso acontece porque o conjunto de instruções e a arquitetura do hardware são completamente diferentes das máquinas que temos hoje.
 
-![Olha o código da ignição da Apolo 11! 😲](/assets/images/apollo11.png)
+[#apolo11] 
+.Olha o código da ignição da Apolo 11! 😲
+image::images/apollo11.png[]
 
 Com o tempo as máquinas ganharam um padrão, tanto de processadores como de Opcodes. Hoje sabemos que existe um processador, um barramento, memória, registradores, etc... Esses componentes variam um pouco de arquitetura pra arquitetura, mas eles continuam seguindo um padrão. Abaixo você pode ver a documentação de um opcode.
 
-![Exemplo de Opcode](/assets/images/opcode.png)
+[#opcode] 
+.Exemplo de Opcode
+image::images/opcode.png[]
 
 _— Cara qual a relação disso com Java?_
 
@@ -39,7 +43,7 @@ Até 1990 era comum um programa ser compilado para uma máquina especifica. Quem
 
 Essa ideia era pensada porque começavam a existir dispositivos que no futuro poderiam ter um processador de uso genérico. Mas como fazer para encapsular toda a lógica do hardware e do sistema operacional? Por isso surgiu algo que é tão importante quanto a linguagem Java: a **Java Virtual Machine**! Ou JVM para os mais íntimos...
 
-A JVM é um programa que lê um conjunto de classes e executa como se fosse um processador em alto nível. Ela tem uma arquitetura como se fosse uma máquina e tem instruções como se fosse um processador. A [especificação](https://docs.oracle.com/javase/specs/jvms/se18/html/index.html) dela é aberta e pode ser acessada por qualquer fornecedor que queira porta ela em seu sistema operacional. 
+A JVM é um programa que lê um conjunto de classes e executa como se fosse um processador em alto nível. Ela tem uma arquitetura como se fosse uma máquina e tem instruções como se fosse um processador. A https://docs.oracle.com/javase/specs/jvms/se18/html/index.html[especificação] dela é aberta e pode ser acessada por qualquer fornecedor que queira porta ela em seu sistema operacional. 
 
 Então agora para e olha para o transformador que existe na sua rua... E se eu te dissesse que é provável que existe uma JVM rodando perto dele para monitorar ele? Você acreditaria? Em algumas cidades existe. Isso só é possível porque ela é portátil em qualquer sistema operacional.
 
