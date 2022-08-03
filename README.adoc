@@ -1,4 +1,5 @@
 = Java 101
+Victor Osório
 :series-name: Ética no trabalho
 :series-volume: 1
 :doctype: book
@@ -13,6 +14,7 @@
 :imagesdir: images
 :front-cover-image: images/default-cover.png
 :toc: left
+:toc-title: Sumário
 :figure-caption: Figura
 :leveloffset: +1
 :stylesheet: style.css
