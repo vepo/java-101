@@ -16,6 +16,7 @@
 :figure-caption: Figura
 :leveloffset: +1
 :stylesheet: style.css
+:source-highlighter: highlight.js
 
 include::00-prefacio.adoc[]
 
