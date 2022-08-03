@@ -2,6 +2,13 @@
 = Prefácio
 :page-partial:
 
-Algumas palavras
+Esse foi um material que me foi pedido insistentemente pelo Twitter. Com a pouca disponibilidade
+de livros e cursos gratuitos em português sobre Java, muitos que não tem acesso a lingua inglesa
+acabam sem poder estudar. Por isso elaborei esse material.
+
+Ao escrever, tenho em mente que meu público alvo é alguém completamente leigo e desejo apresentar
+algum conteúdo sobre computação.
+
+Espero que você aproveite esse material.
 
 Victor Emanuel Perticarrari Osório

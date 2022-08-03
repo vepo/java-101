@@ -36,7 +36,7 @@ jobs:
         id: adocbuild
         uses: tonynv/asciidoctor-action@master
         with:
-          program: "asciidoctor --backend=html5 -o index.html README.adoc"
+          program: "asciidoctor --backend=html5 -o index.html java-101.adoc"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
@@ -45,3 +45,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@main
+  EPUB:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build EPUB
+        uses: vepo/asciidoctor-action@v1.3
+        with: 
+          files: 'java-101.adoc'
+          format: epub
+          asciidoctor-args: -a toc
+          args: "-a revdate=`date +%Y-%m-%d` --failure-level=ERROR"
+      - name: Archive EPUB
+        uses: actions/upload-artifact@v2
+        with:
+          name: book-epub
+          path: asciidoc-out/java-101.epub
