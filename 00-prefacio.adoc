@@ -30,3 +30,15 @@ _— Mas não tem exercício em uma conversa de bar?!!?_
 Não?! Ora, já viu os guardanapos da mesa? Dá pra escrever e ler neles. Logo assim que você ver um exercício, você pode rascunhar uma resposta. Mas se lembre que todos os exercícios vão estar em um único repositório, o https://github.com/vepo/java-101-codigo[github.com/vepo/java-101-codigo]. Para ver todos os exercícios em ordem, faça uma busca por "**// [EXERCÍCIO]**". Você encontrará um método vazio onde deverá colocar sua implementação, depois de feito, rode o comando `mvn clean test` e verá se sua implementação passou ou não no teste.
 
 É muito importante exercitar. Você não será um bom desenvolvedor se não se exercitar. Antes de ler esse livro é importante saber que não existem gênios da computação como os do filmes de Hollywood. Aquilo é tudo mentira, os verdadeiros gênios são pessoas que ficaram anos estudando matemática, física, lógica e computação para que conseguissem formular alguma teoria ou escrever algum programa. Não admire personagens como o Elliot Alderson de Mr. Robot, ele é apenas um personagem de ficção. Admire pessoas como Ada Lovelace, Alan Turing, Edsger Dijkstra, Linus Torvalds e Donald Knuth. São essas pessoas que fizeram o mundo da programação melhor.
+
+[.text-center]
+.Ada Lovelace fez algumas alterações na máquina de Babbage que possibilitou programar ela. Sim! Ela foi a criadora da primeira linguagem de programação.
+image::cap-00/Ada_lovelace.jpg[id=cap-00-ada-lovelace, align="center"]
+
+[.text-center]
+.Alan Turing é o pai da computação moderna. Foi graças a máquina de decodificação dele que os nós vencemos o nazi-fascismo.
+image::cap-00/Alan_Turing_Aged_16.jpg[id=cap-00-alan-turing, align="center"]
+
+[.text-center]
+.Edsger Dijkstra talvez você nunca tenha ouvido falar, mas toda vez que você usa qualquer app de navegação você usa o trabalho dele. Foi um proeminente cientista da computação holandês.
+image::cap-00/dijkstra.jpg[id=cap-00-dijkstra, align="center"]
