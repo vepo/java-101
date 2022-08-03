@@ -14,3 +14,19 @@ Espero que você aproveite esse material.
 
 [.text-right]
 _Victor Emanuel Perticarrari Osório_
+
+
+:chapter: como-ler
+[#como-ler]
+= Como ler esse livro
+:page-partial:
+
+Esse livro foi pensado para ser uma apresentação informal. Cada capitulo vamos tratar de um tema especifico, mas a forma de apresentação será como se eu e você estivéssemos sentado na mesa de um bar ou de um café. Eu sempre que vou ensinar algo tento reproduzir a forma que aprendi muitas das disciplina da universidade, tomando um café na casa de amigos.
+
+Em cada capítulo existirão alguns exercícios.
+
+_— Mas não tem exercício em uma conversa de bar?!!?_
+
+Não?! Ora, já viu os guardanapos da mesa? Dá pra escrever e ler neles. Logo assim que você ver um exercício, você pode rascunhar uma resposta. Mas se lembre que todos os exercícios vão estar em um único repositório, o https://github.com/vepo/java-101-codigo[github.com/vepo/java-101-codigo]. Para ver todos os exercícios em ordem, faça uma busca por "**// [EXERCÍCIO]**". Você encontrará um método vazio onde deverá colocar sua implementação, depois de feito, rode o comando `mvn clean test` e verá se sua implementação passou ou não no teste.
+
+É muito importante exercitar. Você não será um bom desenvolvedor se não se exercitar. Antes de ler esse livro é importante saber que não existem gênios da computação como os do filmes de Hollywood. Aquilo é tudo mentira, os verdadeiros gênios são pessoas que ficaram anos estudando matemática, física, lógica e computação para que conseguissem formular alguma teoria ou escrever algum programa. Não admire personagens como o Elliot Alderson de Mr. Robot, ele é apenas um personagem de ficção. Admire pessoas como Ada Lovelace, Alan Turing, Edsger Dijkstra, Linus Torvalds e Donald Knuth. São essas pessoas que fizeram o mundo da programação melhor.

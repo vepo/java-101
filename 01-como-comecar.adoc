@@ -16,7 +16,9 @@ Nos últimos meses muitas pessoas vem me perguntando por onde começar a desenvo
 
 Eu vou tentar seguir a ordem dessa thread que fiz em dezembro.
 
-//{% twitter https://twitter.com/vepo/status/1473250093742571521 %}
+[.text-center]
+.Thread que fiz no Twitter em dezembro de 2021
+image::cap-01/java-thread.PNG[id=twitter-thread, link=https://twitter.com/vepo/status/1473250093742571521, align="center"]
 
 [#java-e-um-ecossistema]
 == Java é um ecossistema

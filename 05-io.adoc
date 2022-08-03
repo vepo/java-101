@@ -174,8 +174,6 @@ if (!kafkaToolConfigPath.toFile().exists()) {
 return Optional.empty();
 ----
 
-{% github https://github.com/vepo/kafka-tool %}
-
 Para ler usamos um https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html[`BufferedReader`] porque ele permite ler todo o arquivo em texto facilmente, para isso usamos a o método https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedReader-java.nio.file.Path-[`Files.newBufferedReader`], que pode ser lido através do método https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.lang.String-java.lang.Class-[`ObjectMapper.readValue`] que aceita `String`. Mas também podíamos abrir um `InputStream` usando https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newInputStream-java.nio.file.Path-java.nio.file.OpenOption...-[`Files.newInputStream`] e usar ele diretamente como parâmetro https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.io.InputStream-java.lang.Class-[`ObjectMapper.readValue`]
 
 
