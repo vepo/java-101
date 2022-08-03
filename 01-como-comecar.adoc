@@ -1,5 +1,5 @@
 :chapter: como-comecar
-= Como começar a aprender Java
+= Como começar a aprender
 :page-partial:
 
 A intenção dessa série é te apresentar o básico sobre a linguagem Java e te dar ferramentas para que você possa aprender a programar. Nenhum material por sí só fará o trabalho completo, para que você possa se tornar um desenvolvedor é preciso muito exercício, por isso vá lentamente avançando sobre os tópicos propostos e fazendo todos os exercícios propostos. 

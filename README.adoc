@@ -19,19 +19,7 @@
 include::00-prefacio.adoc[]
 
 include::01-como-comecar.adoc[]
-//
-//include::02-estrutura.adoc[]
-//
-//include::03-abordagem.adoc[]
-//
-//include::04-inicio.adoc[]
-//
-//include::05-feedback.adoc[]
-//
-//include::06-evolucao.adoc[]
-//
-//include::07-fim.adoc[]
-//
-//include::08-capitao-do-mato.adoc[]
+
+include::02-sintaxe.adoc[]
 
 :leveloffset: -1
