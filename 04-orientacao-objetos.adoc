@@ -50,6 +50,7 @@ Errado! O objetivo de um desenvolvedor é resolver problemas através da escrita
 
 Vamos tentar explicar de outra forma...
 
+[#cap-04-o-que-e-poo]
 == O que é Programação Orientada a Objetos
 
 Vamos estabelecer algumas hipóteses....
