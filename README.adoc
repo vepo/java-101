@@ -12,16 +12,13 @@
 :language: asciidoc
 :imagesdir: images
 :front-cover-image: images/default-cover.png
-:toc-title: Sumário
-//:stylesheet: style.css
-
-:toc:
+:toc: left
 
 :leveloffset: +1
 
 include::00-prefacio.adoc[]
 
-//include::01-introducao.adoc[]
+include::01-como-comecar.adoc[]
 //
 //include::02-estrutura.adoc[]
 //
