@@ -135,8 +135,6 @@ image::cap-01/eclipse-novo-projeto-2.png[id=eclipse-novo-projeto-2, align="cente
 
 Da mesma forma que o IntelliJ você tem que selecionar o botão direito do mouse na pasta `src` e depois selecione **New → Java Class**.
 
-![Criar novo projeto](/assets/images/java/eclipse-novo-projeto-3.png)
-
 [.text-center]
 .Criando classe - Atalho
 image::cap-01/eclipse-novo-projeto-3.png[id=eclipse-novo-projeto-3, align="center"]

@@ -16,7 +16,7 @@ _—  Você não ia falar de I/O? Que papo é esse de **serialização** e inter
 
 Sim, I/O é outra forma de falar sobre serialização. Toda informação para ser enviada ela passa pelos passos de (1) serialização, (2) escrita, (3) transmissão, (4) leitura e (5) desserialização. O processo de transmissão pode ser o envio dessa informação através de uma API, ou o armazenamento dela em um banco de dados ou mesmo a escrita no disco para que possa ser lida no futuro. Os formatos de serialização de dados são bem interessantes de se analisar, mas não é o foco desse post, aqui focaremos em conhecer as bibliotecas que a JVM nos oferece para que possamos ler e escrever objetos onde bem desejarmos.
 
-Na JVM existem dois pacotes que lidam com serialização em Java. O mais conhecido deles é o [`java.io`](https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html) onde estão definidas as classes para leitura síncrona. Já no [`java.nio`](https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html) estão definidas as classes para leitura assíncrona (Non-blocking I/O).
+Na JVM existem dois pacotes que lidam com serialização em Java. O mais conhecido deles é o https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html[`java.io`] onde estão definidas as classes para leitura síncrona. Já no https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html[`java.nio`] estão definidas as classes para leitura assíncrona (Non-blocking I/O).
 
 Seria hipocrisia da minha parte dizer que você deve conhecer esses pacotes por completo, eu não os conheço. Só quem trabalha especificamente com I/O deve conhecer bem essas classes. Não se surpreenda se um desenvolvedor com anos de experiência em Java procurar no Google _"how to read a text file in Java"_. Isso acontece porque esses pacotes são complexos e por isso difíceis de serem internalizados. Mas você deve saber algumas informações importantes e nós vamos trabalhar elas aqui.
 
@@ -42,7 +42,7 @@ Se compararmos a escrita e memória com a escrita em disco, ou interface de rede
 
 Uma das grandes vantagens do Sistema Operacional Linux é que tudo são arquivos. Quase todas as funcionalidades do sistema operacional são expostas através de arquivos mapeados no sistema de arquivos. Assim ao invés de fazer uma chamada de sistema complexa para, por exemplo, obter o tempo que a máquina está em operação, basta ler o arquivo `/proc/uptime`. Ou ler o arquivo `/proc/cpuinfo` para obter uma série de informações sobre a CPU. 
 
-Essa foi uma escolha arquitetural do sistema que se tornou bastante eficaz porque cria uma interface comum entre diversas operações. Por exemplo, se você for procurar no Windows a maneira de se ver todos os processo em execução, verá que tem uma [API (_lembre-se que API não se refere só a API REST_) complexa](https://docs.microsoft.com/pt-br/windows/win32/psapi/enumerating-all-processes), mas em um Linux basta executar `ls /proc` e todos os diretórios com números são processos. Para saber mais informações dos processos, basta acessar alguns arquivos dentro dessas pastas.
+Essa foi uma escolha arquitetural do sistema que se tornou bastante eficaz porque cria uma interface comum entre diversas operações. Por exemplo, se você for procurar no Windows a maneira de se ver todos os processo em execução, verá que tem uma https://docs.microsoft.com/pt-br/windows/win32/psapi/enumerating-all-processes[API (_lembre-se que API não se refere só a API REST_) complexa], mas em um Linux basta executar `ls /proc` e todos os diretórios com números são processos. Para saber mais informações dos processos, basta acessar alguns arquivos dentro dessas pastas.
 
 Essa informação pode parecer perdida, mas ela tem uma relação profunda com o que veremos a seguir. Quando o Linux escolhe mapear tudo como arquivo, a escolha feita é por se tratar diversas formas de dados por uma mesma interface. Arquivos são fáceis de serem lidos, então ao expor tudo como arquivo é fácil conseguir acessar essas informações. A JVM também traz a mesma abordagem! Tudo em serialização vai se resumir a poucas classes. A operação de leitura de um arquivo ou leitura de um socket são tão semelhantes que podem ser executadas pelo mesmo código.
 
@@ -51,21 +51,31 @@ Essa informação pode parecer perdida, mas ela tem uma relação profunda com o
 
 Para entendermos o pacote `java.io` primeiro precisamos entender o que é um Stream (ou fluxo em tradução livre). Não confunda Stream de I/O com Stream de Collections, eles tem um conceito parecido, mas são aplicados em locais diferentes. Stream significa fluxo e quando falamos de Stream estamos falando de uma informação que flui em sentido único. 
 
-Para entender melhor é preciso pensar em como era feito antes... As bibliotecas do C para leitura de arquivo/socket não fazem diferenciação entre as interfaces de leitura e escrita, ao se criar um canal de comunicação temos um inteiro que identifica o canal e esse inteiro pode ser usado tanto para leitura como para escrita. Observe a documentação das funções [`read`](https://man7.org/linux/man-pages/man2/read.2.html) e [`write`](https://man7.org/linux/man-pages/man2/write.2.html) e veja que elas recebem os mesmo argumentos.
+Para entender melhor é preciso pensar em como era feito antes... As bibliotecas do C para leitura de arquivo/socket não fazem diferenciação entre as interfaces de leitura e escrita, ao se criar um canal de comunicação temos um inteiro que identifica o canal e esse inteiro pode ser usado tanto para leitura como para escrita. Observe a documentação das funções https://man7.org/linux/man-pages/man2/read.2.html[`read`] e https://man7.org/linux/man-pages/man2/write.2.html[`write`] e veja que elas recebem os mesmo argumentos.
 
-[![Documentação da função read](/assets/images/c/read.PNG)](https://man7.org/linux/man-pages/man2/read.2.html)
 
-[![Documentação da função write](/assets/images/c/write.PNG)](https://man7.org/linux/man-pages/man2/write.2.html)
+[.text-center]
+.Documentação da função read
+image::cap-05/read.PNG[id=cap-05-c-read, link=https://man7.org/linux/man-pages/man2/read.2.html, align="center"]
+
+
+[.text-center]
+.Documentação da função write
+image::cap-05/write.PNG[id=cap-05-c-write, link=https://man7.org/linux/man-pages/man2/write.2.html, align="center"]
 
 Em Java foi decidido que haveria uma diferenciação lógica entre leitura e escrita. Ao se ler um arquivo poderíamos ter o fluxo de leitura (InputStream ou Reader) e o fluxo de escrita (`OutputStream` ou `Writer`). Cada um desses fluxos teria uma orientação única, isso significa que um InputStream apenas lê e o `OutputStream` apenas escreve. É por isso que se usa o nome Stream.
 
 Essa é a primeira informação importante do pacote `java.io`: **As interfaces de leitura são separadas das interfaces de escrita!** Para apresentar o pacote em um diagrama de classes foi até preciso criar essa separação para possibilitar que melhor visualização.
 
-Outro ponto da biblioteca C que explica o funcionamento do pacote `java.io` são as funções [`open`](https://man7.org/linux/man-pages/man2/open.2.html) e [`close`](https://man7.org/linux/man-pages/man2/close.2.html). Em qualquer sistema operacional para se realizar a leitura em arquivo, ou em um socket, só é possível com a alocação de recurso. Isso é feito para evitar que processos diferentes criem estados inconsistentes. Quando um processo chama a função `open` para um determinado arquivo, ele não poderá ser aberto por outro processo enquanto não for liberado através da função `close`. Se a função `close` não for chamada, o arquivo só será liberado quando o processo morrer o que pode também gerar um estado inconsistente. Por isso era importante garantir na escrita do código que a função close sempre fosse chamada e que o arquivo sempre estivesse em um estado consistente. Lembre-se que leitura e escrita não são processos imediatos, se o programa finalizar ou o arquivo for fechado antes da escrita terminar, o arquivo fica em um estado inconsistente.
+Outro ponto da biblioteca C que explica o funcionamento do pacote `java.io` são as funções https://man7.org/linux/man-pages/man2/open.2.html[`open`] e https://man7.org/linux/man-pages/man2/close.2.html[`close`]. Em qualquer sistema operacional para se realizar a leitura em arquivo, ou em um socket, só é possível com a alocação de recurso. Isso é feito para evitar que processos diferentes criem estados inconsistentes. Quando um processo chama a função `open` para um determinado arquivo, ele não poderá ser aberto por outro processo enquanto não for liberado através da função `close`. Se a função `close` não for chamada, o arquivo só será liberado quando o processo morrer o que pode também gerar um estado inconsistente. Por isso era importante garantir na escrita do código que a função close sempre fosse chamada e que o arquivo sempre estivesse em um estado consistente. Lembre-se que leitura e escrita não são processos imediatos, se o programa finalizar ou o arquivo for fechado antes da escrita terminar, o arquivo fica em um estado inconsistente.
 
-[![Documentação da função open](/assets/images/c/open.PNG)](https://man7.org/linux/man-pages/man2/open.2.html)
+[.text-center]
+.Documentação da função open
+image::cap-05/open.PNG[id=cap-05-c-open, link=https://man7.org/linux/man-pages/man2/open.2.html, align="center"]
 
-[![Documentação da função close](/assets/images/c/close.PNG)](https://man7.org/linux/man-pages/man2/close.2.html)
+[.text-center]
+.Documentação da função close
+image::cap-05/close.PNG[id=cap-05-c-close, link=https://man7.org/linux/man-pages/man2/close.2.html, align="center"]
 
 Agora volta ao Java... Em C era preciso criar mecanismos de garantir que o arquivo estava fechado antes que o programa finalizasse. Em Java isso foi internalizado na linguagem através de alguns mecanismos. Por isso temos as interfaces `Closeable` e `AutoCloseable`. Se um objeto precisa liberar recursos depois de usado, ele deve implementar a interface `Closeable` e o método `close` deve ser chamado. Até a versão 6 do Java era comum ver o `close` sendo chamado dentro do bloco `finally` de um `try {} catch {} finally {}`.
 
@@ -101,16 +111,20 @@ try (Reader reader = /* inicia reader */) {
 
 Agora que sabemos que (1) objetos de I/O devem liberar recursos e que as classes de I/O são do tipo `Closeable`, observe as principais classes do pacote. Vamos explorar um pouco delas.
 
-![Java I/O classes de leitura](/assets/images/java/IO-Read.png)
+[.text-center]
+.Java I/O classes de leitura
+image::cap-05/IO-Read.png[id=cap-05-io-read, align="center"]
 
 
-![Java I/O classes de leitura](/assets/images/java/IO-Write.png)
+[.text-center]
+.Java I/O classes de escrita
+image::cap-05/IO-Write.png[id=cap-05-io-write, align="center"]
 
 == 1. Como ler um arquivo?
 
 Falamos anteriormente que a diferença entre um InputStream e um Reader é que o InputStream trabalha com bytes enquanto o Reader com caracteres. Agora vamos mostrar um exemplo prático? Imagina que você tem um arquivo texto em formato JSON, como fazer pra o ler? Se pensou em ler usando um Reader... vá com calma! A primeira coisa a fazer é decidir qual biblioteca vai ser usada para ler o JSON. A escolha deve começar pelo elemento mais complexo.
 
-Para se ler um JSON, temos uma biblioteca praticamente onipresente: [Jackson Databind](https://github.com/FasterXML/jackson-databind/)! O coração dessa biblioteca é a classe [ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html) e ela define várias formas de se escrever em arquivo, a forma mais fácil nem chega a usar Stream ou Readers. O código abaixo foi retirado a própria documentação do ObjectMapper, observe que não se usa nem InputStream/OutputStream ou Readers/Writers.
+Para se ler um JSON, temos uma biblioteca praticamente onipresente: https://github.com/FasterXML/jackson-databind/[Jackson Databind]! O coração dessa biblioteca é a classe https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html[ObjectMapper] e ela define várias formas de se escrever em arquivo, a forma mais fácil nem chega a usar Stream ou Readers. O código abaixo foi retirado a própria documentação do ObjectMapper, observe que não se usa nem InputStream/OutputStream ou Readers/Writers.
 
 [source,java]
 ----
@@ -128,7 +142,7 @@ JsonNode root = mapper.readTree(newState);
 int age = root.at("/personal/age").getValueAsInt(); 
 ----
 
-Mas isso não impede que se use eles para ler dados de um arquivo. A primeira missão que temos é mapear o objeto que devemos ler como um POJO. Em um projeto pessoal eu criei uma interface para inspecionar Cluster Kafka, o [Kafka Tool](https://vepo.github.io/projects/kafka-tool). Nesse projeto, todas as configurações são salvas em arquivos JSON no diretório `~/.kafka-tool` (arquivos começados com `.` são considerados ocultos no Linux), assim para armazenar as informações de Brokers é preciso primeiro mapear um broker. Depois de mapeador o broker é preciso carregar a lista de brokers do arquivo, para isso basta usar o código abaixo.
+Mas isso não impede que se use eles para ler dados de um arquivo. A primeira missão que temos é mapear o objeto que devemos ler como um POJO. Em um projeto pessoal eu criei uma interface para inspecionar Cluster Kafka, o https://vepo.github.io/projects/kafka-tool[Kafka Tool]. Nesse projeto, todas as configurações são salvas em arquivos JSON no diretório `~/.kafka-tool` (arquivos começados com `.` são considerados ocultos no Linux), assim para armazenar as informações de Brokers é preciso primeiro mapear um broker. Depois de mapeador o broker é preciso carregar a lista de brokers do arquivo, para isso basta usar o código abaixo.
 
 [source,java]
 ----
@@ -152,7 +166,7 @@ return Optional.empty();
 
 {% github https://github.com/vepo/kafka-tool %}
 
-Para ler usamos um [`BufferedReader`](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html) porque ele permite ler todo o arquivo em texto facilmente, para isso usamos a o método [`Files.newBufferedReader`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedReader-java.nio.file.Path-), que pode ser lido através do método [`ObjectMapper.readValue`](https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.lang.String-java.lang.Class-) que aceita `String`. Mas também podíamos abrir um `InputStream` usando [`Files.newInputStream`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newInputStream-java.nio.file.Path-java.nio.file.OpenOption...-) e usar ele diretamente como parâmetro [`ObjectMapper.readValue`](https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.io.InputStream-java.lang.Class-)
+Para ler usamos um https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html[`BufferedReader`] porque ele permite ler todo o arquivo em texto facilmente, para isso usamos a o método https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedReader-java.nio.file.Path-[`Files.newBufferedReader`], que pode ser lido através do método https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.lang.String-java.lang.Class-[`ObjectMapper.readValue`] que aceita `String`. Mas também podíamos abrir um `InputStream` usando https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newInputStream-java.nio.file.Path-java.nio.file.OpenOption...-[`Files.newInputStream`] e usar ele diretamente como parâmetro https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.io.InputStream-java.lang.Class-[`ObjectMapper.readValue`]
 
 
 == 2. Como escrever um arquivo?
@@ -175,13 +189,13 @@ try (BufferedWriter writer = Files.newBufferedWriter(propertiesPath, StandardOpe
 }
 ----
 
-Para escrever usamos um [`BufferedWriter`](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedWriter.html), através do [`Files.newBufferedWriter`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedWriter-java.nio.file.Path-java.nio.file.OpenOption...-), porque é uma opção viável para se usar com [`ObjectMapper.writeValueAsString`](https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#writeValueAsString-java.lang.Object-). Mas da mesma forma podíamos usar [`OutputStream`](https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html), através do [`Files.newOutputStream`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newOutputStream-java.nio.file.Path-java.nio.file.OpenOption...-), porque também é uma opção viável para se usar com [`ObjectMapper.writeValueAsBytes`](https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#writeValueAsBytes-java.lang.Object-)
+Para escrever usamos um https://docs.oracle.com/javase/8/docs/api/java/io/BufferedWriter.html[`BufferedWriter`], através do https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedWriter-java.nio.file.Path-java.nio.file.OpenOption...-[`Files.newBufferedWriter`], porque é uma opção viável para se usar com https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#writeValueAsString-java.lang.Object-[`ObjectMapper.writeValueAsString`]. Mas da mesma forma podíamos usar https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html[`OutputStream`], através do https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newOutputStream-java.nio.file.Path-java.nio.file.OpenOption...-[`Files.newOutputStream`], porque também é uma opção viável para se usar com https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#writeValueAsBytes-java.lang.Object-[`ObjectMapper.writeValueAsBytes`]
 
 == 3. Como ler dados do console?
 
 Toda aplicação pode rodar em modo de linha de comando. Linha de comando é bastante útil porque possibilita que as aplicações sejam integradas a scripts de execução seguindo a Filosofia Unix: **_Escreva programas para lidar com fluxos de texto, porque essa é uma interface universal_**.
 
-A primeira informação importante é saber que os streams de entrada, saída e erro estão expostos como variáveis globais na classe [`System`](https://docs.oracle.com/javase/8/docs/api/java/lang/System.html). Assim podemos facilmente escrever um programa que lê da linha de comando com algumas linhas.
+A primeira informação importante é saber que os streams de entrada, saída e erro estão expostos como variáveis globais na classe https://docs.oracle.com/javase/8/docs/api/java/lang/System.html[`System`]. Assim podemos facilmente escrever um programa que lê da linha de comando com algumas linhas.
 
 [source,java]
 ----
@@ -191,7 +205,7 @@ try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))
 }
 ----
 
-Esse código é certo e funciona, mas existe uma outra classe que facilita em muito o tratamento de dados que vem do console, é a classe [`Scanner`](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html). Com ela é possível tratar os dados de entrada de forma mais fácil. Por exemplo se eu quiser fazer um programa para lê números do console, é possível fazer com poucas linhas.
+Esse código é certo e funciona, mas existe uma outra classe que facilita em muito o tratamento de dados que vem do console, é a classe https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html[`Scanner`]. Com ela é possível tratar os dados de entrada de forma mais fácil. Por exemplo se eu quiser fazer um programa para lê números do console, é possível fazer com poucas linhas.
 
 [source,java]
 ----
@@ -242,17 +256,17 @@ try (Socket socket = new Socket("localhost", 5555)) {
 }
 ----
 
-Eu não recomendo a você escrever um servidor socket em nenhuma hipótese. Caso você tenha um protocolo complexo que deve ser feito através de um servidor socket, eu recomendo usar o projeto [Netty](https://netty.io/) para que você consiga focar nas regras de negócios deixando funcionalidades como serialização, controle de threads e segurança como responsabilidade da biblioteca.
+Eu não recomendo a você escrever um servidor socket em nenhuma hipótese. Caso você tenha um protocolo complexo que deve ser feito através de um servidor socket, eu recomendo usar o projeto https://netty.io/[Netty] para que você consiga focar nas regras de negócios deixando funcionalidades como serialização, controle de threads e segurança como responsabilidade da biblioteca.
 
 == 5. Escrevendo objetos complexos
 
-Se você foi atento deve ter reparado que no diagrama de classe tem duas classes que parecem bastante úteis: [`ObjectInputStream`](https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInputStream.html) e [`ObjectOutputStream`](https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutputStream.html). Essas duas classes permitem serializar qualquer objeto da JVM e enviar para outra JVM, é por causa dessas classes que existe a interface [`Serializable`](https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html) a qual eu citei na minha primeira pergunta e até agora não respondi. Pois vamos entender o motivo de deixar essa resposta por último?
+Se você foi atento deve ter reparado que no diagrama de classe tem duas classes que parecem bastante úteis: https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInputStream.html[`ObjectInputStream`] e https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutputStream.html[`ObjectOutputStream`]. Essas duas classes permitem serializar qualquer objeto da JVM e enviar para outra JVM, é por causa dessas classes que existe a interface https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html[`Serializable`] a qual eu citei na minha primeira pergunta e até agora não respondi. Pois vamos entender o motivo de deixar essa resposta por último?
 
-Para serializar um objeto eu devo usar a interface [`Serializable`](https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html)? Não! Você pode usar qualquer biblioteca com formatos de serialização que são compreendidos por várias linguagens. A interface `Serializable` é usada para serializar objetos que só podem ser carregados na JVM através das classes `ObjectInputStream` e `ObjectOutputStream`. MAS essas classes não deve ser usadas porque elas tem várias falhas de segurança que podem ser exploradas. Então resposta curta: **Não use essas classes!**
+Para serializar um objeto eu devo usar a interface https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html[`Serializable`]? Não! Você pode usar qualquer biblioteca com formatos de serialização que são compreendidos por várias linguagens. A interface `Serializable` é usada para serializar objetos que só podem ser carregados na JVM através das classes `ObjectInputStream` e `ObjectOutputStream`. MAS essas classes não deve ser usadas porque elas tem várias falhas de segurança que podem ser exploradas. Então resposta curta: **Não use essas classes!**
 
 [#cap-05-proximos-passos]
 == Próximos passos
 
 Eu espero que você tenha compreendido que como ler dados de várias fontes como arquivos ou sockets. Agora é hora de você aprender a usar bibliotecas de leituras de arquivos. Recomendo que você explore a biblioteca Jackson, assim como outras bibliotecas para se escrever JSON. Um bom exercício é comparar a performance de escrita entre várias bibliotecas e escolher a que você vai usar sempre.
 
-Outros exercícios são tentar conhecer a biblioteca de leitura e XML, [YAML](https://yaml.org/), [TOML](https://toml.io/en/) ou qualquer outro formato que lhe interessar.
+Outros exercícios são tentar conhecer a biblioteca de leitura e XML, https://yaml.org/[YAML], https://toml.io/en/[TOML] ou qualquer outro formato que lhe interessar.

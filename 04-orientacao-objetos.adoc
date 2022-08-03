@@ -3,9 +3,9 @@
 = Orientação a Objetos
 :page-partial:
 
-Java tem um fã clube enorme! São pessoas que usam a linguagem no dia a dia e resolvem problemas importantes para a nossa sociedade. Quando Java completou 25 anos houve até a hashtag [#MovedByJava](https://twitter.com/search?q=lang%3Apt%20%23MovedByJava&src=typed_query&f=top) para mostrar que o mundo é movido por software desenvolvido em Java, são bilhões de transações em Java em serviços altamente escaláveis.
+Java tem um fã clube enorme! São pessoas que usam a linguagem no dia a dia e resolvem problemas importantes para a nossa sociedade. Quando Java completou 25 anos houve até a hashtag https://twitter.com/search?q=lang%3Apt%20%23MovedByJava&src=typed_query&f=top[#MovedByJava] para mostrar que o mundo é movido por software desenvolvido em Java, são bilhões de transações em Java em serviços altamente escaláveis.
 
-MAS... existe um pequeno grupo raivoso e ruidoso que [odeia Java](https://twitter.com/search?q=java%20lento&src=typed_query&f=live). Eu não desejaria nem citar esse grupo, mas creio que isso tem que estar em qualquer tutorial de Java, não para dar voz a esse povo, mas para desmentir. Java não é lento, talvez você que não está sabendo usar e vamos mais a frente falar sobre _tuning_. Essas pessoas usam argumentos bem simples como "tudo tem que estar em objetos", "eu tenho que escrever um main dentro de um objeto", "nada disso faz sentido"... Resolvi citar eles aqui, porque eles não odeiam Java, eles odeiam Orientação a Objetos e com esse post eu vou te convencer que além de ser uma ótima forma de pensar, Orientação a Objetos ajudou a pavimentar os outros paradigmas que estão por aqui no ano de 2022.
+MAS... existe um pequeno grupo raivoso e ruidoso que https://twitter.com/search?q=java%20lento&src=typed_query&f=live[odeia Java]. Eu não desejaria nem citar esse grupo, mas creio que isso tem que estar em qualquer tutorial de Java, não para dar voz a esse povo, mas para desmentir. Java não é lento, talvez você que não está sabendo usar e vamos mais a frente falar sobre _tuning_. Essas pessoas usam argumentos bem simples como "tudo tem que estar em objetos", "eu tenho que escrever um main dentro de um objeto", "nada disso faz sentido"... Resolvi citar eles aqui, porque eles não odeiam Java, eles odeiam Orientação a Objetos e com esse post eu vou te convencer que além de ser uma ótima forma de pensar, Orientação a Objetos ajudou a pavimentar os outros paradigmas que estão por aqui no ano de 2022.
 
 [#cap-04-um-pouco-de-historia]
 == Um pouco de história
@@ -18,11 +18,11 @@ O Smalltalk! O que foi? 🧐 Achou que era o Java? O Java só surge em 1991, e e
 
 _— Mas porque essa preocupação em ser Orientada a Objetos?!_
 
-Porque na verdade a computação não começou com essas linguagens e nem com esses paradigmas, mas como Programação Funcional (ver _[Conception, evolution, and application of functional programming languages](https://dl.acm.org/doi/abs/10.1145/72551.72554)_). Linguagens funcionais são excelentes para modelarem problemas matemáticos e alguns problemas computacionais, pois elas são declarativas. Podemos transpor a definição de um problema para a linguagem de programação facilmente, podendo até mesmo aplicar uma lógica equacional, pois, se as funções são puras, o valor de `f(x)` só precisa ser calculado uma vez. Logica equacional é o mesmo que tratar uma função como uma equação matemática, isso implica que símbolos iguais terão valores iguais. 
+Porque na verdade a computação não começou com essas linguagens e nem com esses paradigmas, mas como Programação Funcional (ver _https://dl.acm.org/doi/abs/10.1145/72551.72554[Conception, evolution, and application of functional programming languages]_). Linguagens funcionais são excelentes para modelarem problemas matemáticos e alguns problemas computacionais, pois elas são declarativas. Podemos transpor a definição de um problema para a linguagem de programação facilmente, podendo até mesmo aplicar uma lógica equacional, pois, se as funções são puras, o valor de `f(x)` só precisa ser calculado uma vez. Logica equacional é o mesmo que tratar uma função como uma equação matemática, isso implica que símbolos iguais terão valores iguais. 
 
 MAS linguagens funcionais apresentam uma certa dificuldade de modelar alguns tipos de sistemas e, com a popularização da computação, foi necessário outros paradigmas para os novos sistemas que foram sendo desenvolvidos. O primeiro desses paradigmas foi a Programação Procedural, popularizado pela linguagens como C. Nesse tipo de linguagem a lógica de programação pode ser estruturada dentro de procedimentos que podem ser tanto funções quanto procedimentos, a diferença entre os dois é que uma função não altera o valor dos parâmetros e sempre retorna um valor, já os procedimentos alteram o valor dos parâmetros e não retornam nenhum valor. Em C, podemos escrever tanto funções quanto procedimentos.
 
-Linguagens procedurais apresentam bastante dificuldade para encapsular complexidade porque é difícil criar abstrações com ela. Em C, os dados são sempre modelados usando tipos primitivos ou estruturas, que nada mais são que agrupamentos de tipos primitivos. Mesmo quem desenvolve C hoje em dia, não consegue compreender o que era desenvolver nos anos 70, pois a linguagem continuou avançando. Eu tenho uma leve ideia porque, na universidade, desenvolvi programas para um microcontrolador com o compilador bem limitado. O exemplo abaixo eu retirei de um [visualizador de CSV](https://github.com/vepo/csvi) que eu desenvolvi por necessidade. 
+Linguagens procedurais apresentam bastante dificuldade para encapsular complexidade porque é difícil criar abstrações com ela. Em C, os dados são sempre modelados usando tipos primitivos ou estruturas, que nada mais são que agrupamentos de tipos primitivos. Mesmo quem desenvolve C hoje em dia, não consegue compreender o que era desenvolver nos anos 70, pois a linguagem continuou avançando. Eu tenho uma leve ideia porque, na universidade, desenvolvi programas para um microcontrolador com o compilador bem limitado. O exemplo abaixo eu retirei de um https://github.com/vepo/csvi[visualizador de CSV] que eu desenvolvi por necessidade. 
 
 [source,c]
 ----
@@ -133,7 +133,9 @@ Os objetos são projetados para compartilhar comportamentos e podem assumir mais
 
 Java é uma linguagem primariamente orientada a objetos, logo você deve primeiro entender o que é uma classe. Classe é o arquétipo de um objeto. Arquétipo, resumidamente, é o tipo comum de algo. Por exemplo, se eu falar que existe o tipo Gato, você vai imaginar o formato desse animal e algumas outras características, mas se eu falar que existe o Garfield você vai imaginar que ele é um Gato laranja, gordo e preguiçoso. O Garfield é um indivíduo do arquétipo Gato.
 
-![Significado de Arquétipo da Wikipedia](/assets/images/java/arquetipo.png)
+[.text-center]
+.Significado de Arquétipo da Wikipedia
+image::cap-04/arquetipo.png[id=significado-arquetipo, align="center"]
 
 Vamos transpor isso pra Java? Podemos ter uma classe Gato, mas o objeto será um Garfield. Assim, podemos ter...
 
@@ -172,13 +174,13 @@ A segunda coisa que vamos detalhar nesse trecho de código são os modificadores
 
 [options="header"]
 |====================================================================================================================================================================================================================================================================================
-| Tipo             | token        | Descrição                                                                                                                                                                                                                                        
-| Package Private  | -            | Define que o elemento será acessível dentro do pacote. Esse é o modificador padrão, isso significa que nesse caso pode ser omitido.                                                                                                              
-| Privado          | `private`    | Define que o elemento só pode ser acessado dentro da própria classe.                                                                                                                                                                             
-| Protegido        | `protected`  | Define que o elemento é acessível dentro do mesmo pacote ou através de herança.                                                                                                                                                                  
-| Público          | `public`     | Define que o elemento é acessível em qualquer contexto.                                                                                                                                                                                          
-| Final            | `final`      | Se aplicada a classe, ela não poderá ser estendida. Se aplicada a um campo ele não poderá ter seu valor alterado. Se aplicado a um método, ele não poderá ser reimplementado em uma classe que herda ele.                                        
-| Estático         | `static`     | Pode ser usado tanto em campos como em classes internas. Se usado no campo, ele vai ter apenas um valor e está associado a classe. Campos não estáticos são associados a objetos. Se aplicado a classes internas, ela não dependerá de um objeto.
+| Tipo             ^| Token        | Descrição                                                                                                                                                                                                                                        
+| Package Private  ^| -            | Define que o elemento será acessível dentro do pacote. Esse é o modificador padrão, isso significa que nesse caso pode ser omitido.                                                                                                              
+| Privado          ^| `private`    | Define que o elemento só pode ser acessado dentro da própria classe.                                                                                                                                                                             
+| Protegido        ^| `protected`  | Define que o elemento é acessível dentro do mesmo pacote ou através de herança.                                                                                                                                                                  
+| Público          ^| `public`     | Define que o elemento é acessível em qualquer contexto.                                                                                                                                                                                          
+| Final            ^| `final`      | Se aplicada a classe, ela não poderá ser estendida. Se aplicada a um campo ele não poderá ter seu valor alterado. Se aplicado a um método, ele não poderá ser reimplementado em uma classe que herda ele.                                        
+| Estático         ^| `static`     | Pode ser usado tanto em campos como em classes internas. Se usado no campo, ele vai ter apenas um valor e está associado a classe. Campos não estáticos são associados a objetos. Se aplicado a classes internas, ela não dependerá de um objeto.
 |====================================================================================================================================================================================================================================================================================
 
 
@@ -263,7 +265,9 @@ Agora vamos discutir alguns conceitos comuns da orientação a objetos que podem
 
 Para entender herança, podemos pensar em herança genética. Todo objeto ele tem um arquétipo e ele vai possuir uma hierarquia de tipos. Um `Gato` é um `Felino` que é um `Animal`. Cada uma dessas classes podem ter comportamentos associados ou apenas assinaturas de métodos. Se voltarmos no post anterior, sobre a biblioteca `Collections`, vamos ver o mais comum tipo de herança.
 
-![Pacote Java Collections](/assets/images/java/Collections.png)
+[.text-center]
+.Pacote Java Collections
+image::cap-03/Collections.png[id=jdk-lib-collections, align="center"]
 
 Vamos ver o caso da `LinkedList` que estende uma `AbstractSequentialList` e implementa as interface `List`, `Deque`, `Cloneable` e `Serializable`.
 
@@ -339,7 +343,7 @@ Nós fizemos _overload_ de um método estático, mas poderíamos ter feito de um
 
 Uma outra reclamação constante de quem não gosta de Java é a necessidade de se implementar esses três métodos que as vezes parecem inúteis.
 
-Primeiro devemos esclarecer que `hashCode`, `equals` e `toString` são métodos extremamente úteis e usados constantemente pela JVM. É sempre recomendável a leitura da documentação da classe [Object](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/Object.html) sobre esses três métodos.
+Primeiro devemos esclarecer que `hashCode`, `equals` e `toString` são métodos extremamente úteis e usados constantemente pela JVM. É sempre recomendável a leitura da documentação da classe https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/Object.html[Object] sobre esses três métodos.
 
 `hashCode` é um método usado para o calculo do _Hash_ do objeto. O hash é um valor inteiro que será usado para identificar cada objeto. Dois objetos iguais devem ter o mesmo hash, mas dois objetos com o mesmo hash não são iguais. Toda e qualquer classe usando o nome Hash usar esse método, assim se você tem um `HashMap` ou um `HashSet`, você tem o uso do método.
 

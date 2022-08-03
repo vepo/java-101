@@ -29,7 +29,9 @@ Calma lá! É preciso entender como funciona um computador para não cair no jor
 
 Imagine que https://pt.wikipedia.org/wiki/Quarto_chin%C3%AAs[um computador é como um falante de português que está preso dentro de um quarto com um livro de regras. Sua função é, ao receber caixas com texto em chinês, deve consultar o livro de regras para identificar os símbolos no texto e conseguir formular uma resposta baseado nas regras. Ao formular uma resposta, ela deve ser enviada pra fora do quarto.] Esse homem não sabe chinês e nem consegue compreender o que ele está respondendo, ele só está seguindo as regras de quem escreveu o livro.
 
-![Imagem descrevendo O Quarto Chinês](/assets/images/o-quarto-chinês.png)
+[.text-center]
+.O Quarto Chinês
+image::cap-02/o-quarto-chines.png[id=o-quarto-chines, align="center"]
 
 Programas são o livro de regras que é escrito por programadores. Por melhor que seja um programa, um computador não tem compreensão do que está acontecendo. E se houver alguma situação não prevista no livro de regras, não será possível formular uma resposta. 
 
@@ -421,7 +423,7 @@ No Java tempos três operadores booleanos `&&`, `||` e `!`
 
 [options="header"]
 |=====================================================================================
-| Operador  | Descrição  | Exemplo     | Significado                                  
+^| Operador  ^| Descrição  ^| Exemplo     | Significado                                  
 ^| `&&`      ^| E          ^| `a && b`    | `true` somente se `a` e `b` forem verdadeiras
 ^| `\|\|`    ^| OU         ^| `a \|\| b`  | `true` qualquer um dos valores for verdadeiro
 ^| `!`       ^| Negação    ^| `!a`        | `true` se `a` for `false e vice versa        
@@ -433,13 +435,13 @@ Operadores binários realizam operações binárias. Para entender como funciona
 
 [options="header"]
 |======================================================
-| Operador  | Descrição                                
-| `<<`      | Translada os bits para esquerda          
-| `>>`      | Translada os bits para a direita         
-| `&`       | Faz a operação E bit a bit               
-| `\|`      | Faz a operação OU bit a bit              
-| `^`       | Faz a operação XOU bit a bit             
-| `~`       | Inverte (complemento) os valores dos bits
+^| Operador  | Descrição                                
+^| `<<`      | Translada os bits para esquerda          
+^| `>>`      | Translada os bits para a direita         
+^| `&`       | Faz a operação E bit a bit               
+^| `\|`      | Faz a operação OU bit a bit              
+^| `^`       | Faz a operação XOU bit a bit             
+^| `~`       | Inverte (complemento) os valores dos bits
 |======================================================
 
 === 14. Operadores Matemáticos
@@ -448,12 +450,12 @@ Operadores matemáticos realizam operações matemáticas básicas.
 
 [options="header"]
 |========================================================================
-| Operador  | Descrição                                                  
-| +         | Operador aditivo (também usado para concatenação de String)
-| -         | Operador de subtração                                      
-| *         | Operador de multiplicação                                  
-| /         | Operador de divisão                                        
-| %         | Operador restante                                          
+^| Operador  | Descrição                                                  
+^| +         | Operador aditivo (também usado para concatenação de String)
+^| -         | Operador de subtração                                      
+^| *         | Operador de multiplicação                                  
+^| /         | Operador de divisão                                        
+^| %         | Operador restante                                          
 |========================================================================
 
 === 15. Operadores Unários
@@ -517,4 +519,4 @@ Os exercícios são propostos como forma de validar que você pode ir para o pr�
 
 Para implementar os exercícios procure por **// [EXERCÍCIO SINTAXE]**, implemente e execute `mvn clean test` para validar.
 
-{% github https://github.com/vepo/java-101 %}
+// TODO {% github https://github.com/vepo/java-101 %}
