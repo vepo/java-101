@@ -25,13 +25,13 @@ Primeiro para entender melhor vamos tentar definir o que é uma linguagem de pro
 
 Quando a computação eletrônica começou a se popularizar, existiam inúmeras plataformas e cada uma delas haviam um conjunto de instruções. Para desenvolver qualquer software era preciso conhecer o hardware e o conjunto de instruções que existem naquele hardware. Quer ver um exemplo? Tenta navegar no https://github.com/chrislgarry/Apollo-11[código da Apollo 11] para tentar entender algo. É praticamente impossível, até mesmo para quem já desenvolveu em Assembly. Isso acontece porque o conjunto de instruções e a arquitetura do hardware são completamente diferentes das máquinas que temos hoje.
 
-[#apolo11] 
+[.text-center]
 .Olha o código da ignição da Apolo 11! 😲
 image::cap-01/apollo11.png[align=center]
 
 Com o tempo as máquinas ganharam um padrão, tanto de processadores como de Opcodes. Hoje sabemos que existe um processador, um barramento, memória, registradores, etc... Esses componentes variam um pouco de arquitetura pra arquitetura, mas eles continuam seguindo um padrão. Abaixo você pode ver a documentação de um opcode.
 
-[#opcode] 
+[.text-center]
 .Exemplo de Opcode
 image::cap-01/opcode.png[align=center]
 
@@ -86,7 +86,7 @@ Se você quiser aprender, recomendo abrir sua IDE preferida e criar um projeto J
 
 Com o ItelliJ, selecione Novo Projeto e você verá a tela abaixo. Você precisa adicionar o nome do projeto (_Name_) e o local em que deseja criar o projeto (_Location_). Eu recomendo você ter uma pasta separada para todos os seus projetos. 
 
-[#intellij-novo-projeto-1] 
+[.text-center]
 .Tela de novo Projeto
 image::cap-01/intellij-novo-projeto-1.png[align=center]
 
@@ -95,19 +95,19 @@ Na tela acima, temos algumas opções que são importantes. A primeira delas é 
 
 Depois de criado o projeto, você terá que adicionar uma classe ao projeto. Todo programa Java precisa de um método de entrada chamado `main`. Apesar de muitos criticarem essa limitação, isso era comum quando o Java foi desenvolvido. Hoje, na verdade, o Java não tem essa limitação, você pode usar o https://cr.openjdk.java.net/~rfield/tutorial/JShellTutorial.html[JShell] e importar um arquivo `jsh`. Para criar sua primeira classe, selecione o botão direito do mouse na pasta `src` e depois selecione **New → Java Class**.
 
-[#intellij-novo-projeto-2] 
+[.text-center]
 .Criando nova classe
 image::cap-01/intellij-novo-projeto-2.png[align=center]
 
 Ao selecionar uma nova classe, será necessário dar um nome a ela. O nome de uma classe é o que chamamos de _Fully Qualified Name_, ele é composto pelo nome do pacote e o real nome da classe, no caso estou criando o pacote `io.vepo.helloworld` e a classe `HelloWorld`. Vamos falar mais sobre classes e pacotes quando formos falar de Orientação a Objetos (eu prometo falar disso, tenham paciência!).
 
-[#intellij-novo-projeto-3] 
+[.text-center]
 .Dando nome a classe
 image::cap-01/intellij-novo-projeto-3.png[align=center]
 
 Criada a classe, vou te apresentar uma funcionalidade muito importante. Abra o editor de texto posicione o cursor para editar o texto dentro da classe, adicione o texto `ma` e use a funcionalidade mais fabulosa que se chama **auto-complete** selecionando **CTRL+SPACE**! Magicamente a IDE vai compreender qual é o contexto e vai propor o que você deve escrever. Agora siga para o último _snippet_ desse post. (snippet significa trecho, é normalmente um significado para um trecho de código que serve de exemplo simples).
 
-[#intellij-novo-projeto-4] 
+[.text-center]
 .Criando método main
 image::cap-01/intellij-novo-projeto-4.png[align=center]
 
@@ -119,7 +119,7 @@ Porque eu citei o Java EE? Porque é provável que ao tentar fazer o download do
 
 Assim, ao iniciar o Workspace do Eclipse para Java você verá a opção para criar um novo projeto Java.
 
-[#eclipse-novo-projeto-1] 
+[.text-center]
 .Criar novo projeto - Atalho
 image::cap-01/eclipse-novo-projeto-1.png[align=center]
 
@@ -127,7 +127,7 @@ Ao selecionar, você entrará no Wizard de criação de um novo projeto. Semelha
 
 Você também pode selecionar a JDK que vai usar. Eu recomendo selecionar **Finish**, pois as outras telas do wizard são usadas para adicionar novas bibliotecas ou mudar a estrutura de diretórios do projeto.
 
-[#eclipse-novo-projeto-2] 
+[.text-center]
 .Criar novo projeto - Wizard
 image::cap-01/eclipse-novo-projeto-2.png[align=center]
 
@@ -135,13 +135,13 @@ Da mesma forma que o IntelliJ você tem que selecionar o botão direito do mouse
 
 ![Criar novo projeto](/assets/images/java/eclipse-novo-projeto-3.png)
 
-[#eclipse-novo-projeto-3] 
+[.text-center]
 .Criando classe - Atalho
 image::cap-01/eclipse-novo-projeto-3.png[align=center]
 
 E por fim dar um nome a classe, mas diferente do IntelliJ, o Eclipse dá mais liberdade para criar a classe, como já adicionar o método `main`.
 
-[#eclipse-novo-projeto-4] 
+[.text-center]
 .Criando classe - Wizard
 image::cap-01/eclipse-novo-projeto-4.png[align=center]
 
