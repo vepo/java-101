@@ -67,7 +67,7 @@ Java Beans é uma especificação que deu origem ao que conhecemos hoje como Jak
 
 Não gaste tempo procurando cada programa... nem mesmo o Java. Você precisa de apenas uma coisa: o https://sdkman.io/[SDKMan!]. Com ele é possível instalar qualquer versão de Java que você deseja e algumas outras ferramentas como vamos citar mais a frente. 
 
-Também recomendo ter uma boa linha de comando. Se você usa Windows... Errado! Brincadeira! hehehe Você pode usar Windows, tanto que eu uso Windows (não por livre e espontânea vontade). No Windows você pode usar o Git Bash que é um porte do MinGW que por sua vez é um porte dos programas GNU para Windows.
+Também recomendo ter uma boa linha de comando. Se você usa Windows... Errado! Brincadeira! _hehehe_ Você pode usar Windows, tanto que eu uso Windows (não por livre e espontânea vontade). No Windows você pode usar o Git Bash que é um porte do MinGW que por sua vez é um porte dos programas GNU para Windows.
 
 Sobre a IDE, escolha a que você mais gosta. Todas as IDEs relevantes tem suporte a Java. Você precisa de uma IDE porque é mais fácil desenvolver usando ferramentas para fazer a marcação da linguagem (_o famoso code highlight_) e para propor código (_o famoso auto-complete_). Desenvolvedores experientes preferem comodidade porque os problemas já são complexos demais para ficar perdendo tempo. Eu recomendo usar ou o Eclipse, ou o IntelliJ Idea ou o VS Code. As três IDEs são boas.
 

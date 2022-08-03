@@ -120,7 +120,17 @@ image::cap-05/IO-Read.png[id=cap-05-io-read, align="center"]
 .Java I/O classes de escrita
 image::cap-05/IO-Write.png[id=cap-05-io-write, align="center"]
 
-== 1. Como ler um arquivo?
+== Casos de Uso
+
+Para explorar melhor essas classes, vamos dividir o pacote em 5 casos de usos bem comuns para biblioteca I/O.
+
+1. Como ler um arquivo?
+2. Como escrever um arquivo?
+3. Como ler dados do console?
+4. Como ler/escrever em Socket?
+5. Lidando objetos complexos
+
+=== 1. Como ler um arquivo?
 
 Falamos anteriormente que a diferença entre um InputStream e um Reader é que o InputStream trabalha com bytes enquanto o Reader com caracteres. Agora vamos mostrar um exemplo prático? Imagina que você tem um arquivo texto em formato JSON, como fazer pra o ler? Se pensou em ler usando um Reader... vá com calma! A primeira coisa a fazer é decidir qual biblioteca vai ser usada para ler o JSON. A escolha deve começar pelo elemento mais complexo.
 
@@ -169,7 +179,7 @@ return Optional.empty();
 Para ler usamos um https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html[`BufferedReader`] porque ele permite ler todo o arquivo em texto facilmente, para isso usamos a o método https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedReader-java.nio.file.Path-[`Files.newBufferedReader`], que pode ser lido através do método https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.lang.String-java.lang.Class-[`ObjectMapper.readValue`] que aceita `String`. Mas também podíamos abrir um `InputStream` usando https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newInputStream-java.nio.file.Path-java.nio.file.OpenOption...-[`Files.newInputStream`] e usar ele diretamente como parâmetro https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#readValue-java.io.InputStream-java.lang.Class-[`ObjectMapper.readValue`]
 
 
-== 2. Como escrever um arquivo?
+=== 2. Como escrever um arquivo?
 
 De forma bem similar podemos escreve em arquivos usando as mesmas APIs. 
 
@@ -191,7 +201,7 @@ try (BufferedWriter writer = Files.newBufferedWriter(propertiesPath, StandardOpe
 
 Para escrever usamos um https://docs.oracle.com/javase/8/docs/api/java/io/BufferedWriter.html[`BufferedWriter`], através do https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newBufferedWriter-java.nio.file.Path-java.nio.file.OpenOption...-[`Files.newBufferedWriter`], porque é uma opção viável para se usar com https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#writeValueAsString-java.lang.Object-[`ObjectMapper.writeValueAsString`]. Mas da mesma forma podíamos usar https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html[`OutputStream`], através do https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#newOutputStream-java.nio.file.Path-java.nio.file.OpenOption...-[`Files.newOutputStream`], porque também é uma opção viável para se usar com https://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/ObjectMapper.html#writeValueAsBytes-java.lang.Object-[`ObjectMapper.writeValueAsBytes`]
 
-== 3. Como ler dados do console?
+=== 3. Como ler dados do console?
 
 Toda aplicação pode rodar em modo de linha de comando. Linha de comando é bastante útil porque possibilita que as aplicações sejam integradas a scripts de execução seguindo a Filosofia Unix: **_Escreva programas para lidar com fluxos de texto, porque essa é uma interface universal_**.
 
@@ -218,13 +228,13 @@ try(Scanner in = new Scanner(System.in)) {
 }
 ----
 
-== 4. Como ler/escrever em Socket?
+=== 4. Como ler/escrever em Socket?
 
 Sockets devem ser usados com parcimônia! Sockets permitem que dois processos se comuniquem entre si através de uma conexão TCP direta. O problema em usar Sockets é que em muitos casos você pode estar reimplementando um protocolo já conhecido. Mas as vantagens de se usar socket é que seu programa vai ter liberdade de se comunicar. Quando temos dois programas se comunicando por socket um deles será o cliente e o outro será o servidor, é o que chamamos de Socket Server.
 
-> **Caso de Uso**
->
-> Eu já implementei um caso de uso bastante complexo usando Socket, mas era porque tínhamos um servidor de geração de voz. Os clientes enviavam texto e outros parâmetros e recebiam de volta Stream de dados de acordo com o formato requerido (MP3, WAV, etc...).
+.Caso de Uso
+[sidebar]
+Eu já implementei um caso de uso bastante complexo usando Socket, mas era porque tínhamos um servidor de geração de voz. Os clientes enviavam texto e outros parâmetros e recebiam de volta Stream de dados de acordo com o formato requerido (MP3, WAV, etc...).
 
 Não vamos entrar aqui em detalhes sobre como a classe Socket funciona, mas ao abrir um socket, ela vai dispor de dois Stream para leitura e escrita de dados. Assim podemos ter o servidor abaixo.
 
@@ -258,7 +268,7 @@ try (Socket socket = new Socket("localhost", 5555)) {
 
 Eu não recomendo a você escrever um servidor socket em nenhuma hipótese. Caso você tenha um protocolo complexo que deve ser feito através de um servidor socket, eu recomendo usar o projeto https://netty.io/[Netty] para que você consiga focar nas regras de negócios deixando funcionalidades como serialização, controle de threads e segurança como responsabilidade da biblioteca.
 
-== 5. Escrevendo objetos complexos
+=== 5. Lidando objetos complexos
 
 Se você foi atento deve ter reparado que no diagrama de classe tem duas classes que parecem bastante úteis: https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInputStream.html[`ObjectInputStream`] e https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutputStream.html[`ObjectOutputStream`]. Essas duas classes permitem serializar qualquer objeto da JVM e enviar para outra JVM, é por causa dessas classes que existe a interface https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html[`Serializable`] a qual eu citei na minha primeira pergunta e até agora não respondi. Pois vamos entender o motivo de deixar essa resposta por último?
 

@@ -392,9 +392,9 @@ Em Java só temos passagem por valor quando usamos tipos primitivos (`byte`, `sh
 
 Chamamos de mutabilidade a capacidade de um objeto ter seu estado interno alterado. Em orientação a objetos mutabilidade é um requisito desejado para quase todas as classes, por isso que só recentemente o Java incorporou o conceito de imutabilidade a linguagem através dos Records. Antes dos Records era comum se usar POJOs em que existia para cada campo um respectivo `get` e um `set`.
 
-> **POJO**
->
-> POJO é um acrônimo para _Plain Old Java Object_, que significa velho e simples objeto Java. É um termo usado para referenciar um padrão de classes Java que não dependem da herança de interfaces ou classes de frameworks externos.
+.POJO
+[sidebar]
+POJO é um acrônimo para _Plain Old Java Object_, que significa velho e simples objeto Java. É um termo usado para referenciar um padrão de classes Java que não dependem da herança de interfaces ou classes de frameworks externos.
 
 Records é o tipo que adiciona o conceito de imutabilidade ao código Java. Abaixo vou definir a classe **Usuario** três vezes. Na primeira vez ela é mutável, na segunda imutável usando POJO e na terceira usando record.
 
