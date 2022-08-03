@@ -1,4 +1,5 @@
 :chapter: como-comecar
+[#como-comecar]
 = Como começar a aprender
 :page-partial:
 
@@ -17,6 +18,7 @@ Eu vou tentar seguir a ordem dessa thread que fiz em dezembro.
 
 //{% twitter https://twitter.com/vepo/status/1473250093742571521 %}
 
+[#java-e-um-ecossistema]
 == Java é um ecossistema
 
 Muitos tendem a querer comparar Java com outras linguagens. Alguns tem a pretensão de comparar Java com linguagens como Javascript ou mesmo Scala. Esse é um erro crasso! Java não é apenas uma linguagem, mas um ecossistema.
@@ -288,6 +290,7 @@ public class HelloWorld {
 
 Agora caso você queira criar um programa usando um framework... Eu recomendo você procurar o tutorial desse framework. Talvez você precisará escrever um `main` específico ou mesmo usar um conjunto de anotações.
 
+[#cap-01-exercicios]
 == Exercícios
 
 Os exercícios são propostos como forma de validar que você pode ir para o próximo passo. Nessa sessão vamos apenas pedir para você configurar o ambiente, para isso:
@@ -296,6 +299,7 @@ Os exercícios são propostos como forma de validar que você pode ir para o pr�
 2. Crie um programa Java usando a IDE
 3. Crie um programa Java usando um sistema de build (Maven ou Gradle)
 
+[#cap-01-proximos-passos]
 == Próximos passos
 
 Agora que você sabe como escrever e executar um programa Java, você pode conhecer um pouco mais da sintaxe da linguagem. Ela é baseada na linguagem C, mas tem algumas especificidades... Eu recomendei o tutorial do https://www.w3schools.com/java/java_syntax.asp[W3CSchools] por ter ao menos uma listagem das principais construções do Java 8. Tente saber como declarar uma classe, um método, variáveis, quais são as principais estruturas de loop (`for` e `while`) e suas variações e por fim as estruturas lógicas (`if` e `switch`).

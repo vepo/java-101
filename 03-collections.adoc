@@ -1,4 +1,5 @@
 :chapter: collections
+[#collections]
 = A biblioteca Collections
 :page-partial:
 
@@ -156,6 +157,7 @@ lista.stream().filter(x -> x.contains("a")).collect(Collectors.toList()); // $2 
 
 No código acima nós criamos uma lista e depois criamos um `Stream` baseado nela. Até chamar o método `collect`, o `Stream` não passava de uma sequência de operações sob a lista, depois se cria uma nova lista (poderia ser qualquer coisa) usando as operações. A lista original não é alterada!
 
+[#cap-03-conclusao]
 == Conclusão
 
 Collections é uma biblioteca onipresente! Em qualquer código você verá vestígio dela. Experimente e conheça.

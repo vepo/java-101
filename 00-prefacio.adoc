@@ -1,4 +1,5 @@
 :chapter: prefacio
+[#prefacio]
 = Prefácio
 :page-partial:
 

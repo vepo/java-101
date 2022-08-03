@@ -1,4 +1,5 @@
 :chapter: orientacao-objetos
+[#orientacao-objetos]
 = Orientação a Objetos
 :page-partial:
 
@@ -6,6 +7,7 @@ Java tem um fã clube enorme! São pessoas que usam a linguagem no dia a dia e r
 
 MAS... existe um pequeno grupo raivoso e ruidoso que [odeia Java](https://twitter.com/search?q=java%20lento&src=typed_query&f=live). Eu não desejaria nem citar esse grupo, mas creio que isso tem que estar em qualquer tutorial de Java, não para dar voz a esse povo, mas para desmentir. Java não é lento, talvez você que não está sabendo usar e vamos mais a frente falar sobre _tuning_. Essas pessoas usam argumentos bem simples como "tudo tem que estar em objetos", "eu tenho que escrever um main dentro de um objeto", "nada disso faz sentido"... Resolvi citar eles aqui, porque eles não odeiam Java, eles odeiam Orientação a Objetos e com esse post eu vou te convencer que além de ser uma ótima forma de pensar, Orientação a Objetos ajudou a pavimentar os outros paradigmas que estão por aqui no ano de 2022.
 
+[#cap-04-um-pouco-de-historia]
 == Um pouco de história
 
 Orientação a Objetos surgiu nos anos 60 e era usado para fazer simulações no Simula 67. Esta linguagem, por sua vez, acabou por influenciar o C++ (1979), que na verdade é uma tentativa de adicionar objetos a linguagem C. Por muitos anos o C++ foi uma das linguagens mais influentes do mercado, ela não era, puramente, uma linguagem orientada a objetos, era até possível intercalar código C com código C++. A primeira linguagem que surge como puramente orientada a objetos e ainda por cima compilada em _bytecode_ para ser executado em uma Máquina Virtual foi... 
@@ -74,6 +76,7 @@ Objetos tem um tipo especifico, por exemplo nós estamos falando de um robô. Ma
 
 Para cada pergunta acima, existe uma resposta no mundo da Programação Orientada a Objetos e é o que vamos ver na próxima sessão.
 
+[#cap-04-orientacao-a-objetos]
 == Orientação a Objetos
 
 Nós falamos um pouco sobre Programação Funcional e Programação Procedural, então vamos definir o que é Programação Orientada a Objetos (POO) antes de ver como Java faz POO.
@@ -94,6 +97,7 @@ Abaixo vemos as descrições de cada elemento da POO, elas não se referem a lin
 
 **Objetos** são instâncias de uma classe criada com dados específicos. 
 
+[#cap-04-elementos-metodos]
 ==== Métodos
 
 **Métodos** são funções definidas dentro de uma classe que descrevem o comportamento de um objeto. Cada método contido nas definições de classe começa com uma referência a um objeto de instância. Além disso, as sub-rotinas contidas em um objeto são chamadas de métodos de instância. Os programadores usam métodos para reutilização ou para manter a funcionalidade encapsulada dentro de um objeto por vez.
@@ -102,11 +106,12 @@ Abaixo vemos as descrições de cada elemento da POO, elas não se referem a lin
 
 **Atributos** são definidos no modelo de classe e representam o estado de um objeto. Os objetos terão dados armazenados no campo de atributos. Os atributos de classe pertencem à própria classe.
 
+[#cap-04-principios]
 === Princípios
 
 Quando falamos em Orientação a Objetos, temos em mente alguns princípios.
 
-==== Encapsulamento.
+==== Encapsulamento
 
 Encapsulamento significa que um objeto não é obrigado a expor a sua implementação e nem os seus atributos. Cabe ao design do objeto escolher como será feita essa exposição. Essa característica de ocultação de dados fornece maior segurança ao programa e evita corrupção de dados não intencional.
 
@@ -114,6 +119,7 @@ Encapsulamento significa que um objeto não é obrigado a expor a sua implementa
 
 Objetos criam abstrações que tornam possível controlar a complexidade. Ao se criar uma classe, o restante do sistema deverá interagir através da interface que ela propõe não tendo acesso a sua lógica interna.
 
+[#cap-04-principios-heranca]
 ==== Herança
 
 As classes podem reutilizar o código de outras classes. Relacionamentos e subclasses entre objetos podem ser atribuídos, permitindo que os desenvolvedores reutilizem a lógica comum enquanto ainda mantêm uma hierarquia única. Essa propriedade da OOP força uma análise de dados mais completa, reduz o tempo de desenvolvimento e garante um maior nível de precisão.
@@ -205,6 +211,7 @@ public class Gato {
 
 O método `meow` é o exemplo clássico que veremos em herança, ele não retorna nada, só executa uma ação. Aqui vamos focar nos métodos `cruza` e `mistura` (ok, focar na parte reprodutiva foi péssimo... mas estou falando de gatos!). `mistura` é um método que aleatoriamente vai gerar um novo gato baseado nas características de dois gatos. Nele podemos ver que o método recebe dois parâmetros e retorna um valor. No caso desse método, estamos retornando um novo objeto, mas nada impede de o retorno ser um dos parâmetros. Outra característica é que os parâmetros são uma passagem por referência e não por valor como vamos ver um pouco mais a frente. Sobre o método `cruza`, nele podemos acessar os campos do objeto local e campos da referência. Quero ressaltar o uso do `this` que é a forma de acessar a referência ao objeto pela qual o método é referenciado, o `this` não pode ser usado para métodos estáticos.
 
+[#cap-04-principios-heranca-implemenacao]
 ==== Como Java implementa Herança
 
 Falamos sobre classes e alguns detalhes, mas agora precisamos falar de herança.
@@ -243,6 +250,7 @@ public class Gato extends Felino implements Miador, Ronronador {
 }
 ----
 
+[#cap-04-conceitos-oo]
 === Conceitos da Orientação a Objetos
 
 Agora vamos discutir alguns conceitos comuns da orientação a objetos que podem nos auxiliar no dia a dia.
@@ -335,6 +343,7 @@ Primeiro devemos esclarecer que `hashCode`, `equals` e `toString` são métodos 
 
 `toString` é usado para se criar um valor String para a classe. Sempre implemente o toString para melhorar o rastreamento de erros em logs de execução.
 
+[#cap-04-passagem-por-valor-e-referencia]
 === Passagem por valor e Passagem por referência
 
 Quando estudamos linguagem como C, estudar o tipo de passagem como argumento de uma função é muito importante, porque é possível controlar o que queremos fazer ao se escolher o tipo de parâmetro. Já em Java não nos preocupamos muito, mas em ambas a linguagem temos a possibilidade de se passar um argumento como valor ou como referência. Vamos primeiro definir para depois mostrar como pode ser feito?
@@ -460,6 +469,7 @@ Ao usar records, é como se todos os campos já fossem definidos como final, mas
 public record Usuario(int id, String username, String email) {}
 ----
 
+[#cap-04-conclusao]
 == Conclusão
 
 Orientação a Objeto é uma ótima técnica para fazer design de código. Ela é melhor utilizada quando tempos que modelar problemas do mundo real, mas haverá dificuldade se o modelo for mais próximo de um modelo matemático.

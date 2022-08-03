@@ -1,4 +1,5 @@
 :chapter: a-sintaxe
+[#a-sintaxe]
 = A sintaxe
 :page-partial:
 
@@ -499,6 +500,7 @@ void int abs(int valor) {
 }
 ----
 
+[#cap-02-exercicios]
 == Exercícios
 
 Os exercícios são propostos como forma de validar que você pode ir para o próximo passo. Para fixar o conteúdo dessa sessão implemente alguns algoritmos básicos como:

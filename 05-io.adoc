@@ -1,9 +1,11 @@
-:chapter: io
+:chapter: biblioteca-io
+[#biblioteca-io]
 = A biblioteca I/O
 :page-partial:
 
 Esse post faz parte de uma série introdutória sobre Java, se você não conhece a linguagem e não leu os posts anteriores, recomendo os ler para ter uma visão melhor da plataforma. Nessa série, já falamos sobre o que é o ecossistema Java, o que é a biblioteca Collections e como Java faz Orientação a Objetos, esses tópicos são necessários para o que vamos falar agora: **I/O**.
 
+[#cap-05-o-que-e-io]
 == O que é I/O?!?
 
 Quando pensamos em um computador a primeira coisa que pensamos é no que fazemos online: enviar um tweet, responder email, ver um vídeo ou mesmo ler esse post. Mas um computador não entende essas atividades, para ele tudo são bits, ou seja, todas essa são atividades podem ser traduzidas em outras atividades de baixo nível. Quando eu uso o termo "baixo nível" entenda como algo de menor abstração, por exemplo, para você ler esse post, o seu navegador teve que renderizar uma página HTML, que foi requisitada de um servidor HTTP usando uma conexão Socket, que na verdade é apenas uma troca de bits entre vários computadores. Essas atividades sempre envolvem trocas de informações que só são possível através de algo chamado **serialização**.
@@ -35,6 +37,7 @@ Todo programa, ao ser executado, está armazenado na memória. Essa é uma opera
 
 Se compararmos a escrita e memória com a escrita em disco, ou interface de redes, vemos que a primeira é tão rápida que pode ser considerada imediata. Já os outros tipos de escrita não podem ser consideradas imediatas, por isso surgiram uma série de interfaces capazes de avisar ao software quando o dado está pronto para ser lido. É nesse ponto que diferenciamos IO de NIO! O pacote `java.io` são classes usadas para leitura/escrita bloqueante, enquanto o pacote `java.nio` são classes de leitura/escrita não bloqueante. E como NIO é mais recente que o IO tradicional, seu pacote foi inserido em uma versão do Java bem mais recente (JDK 1.4).
 
+[#cap-05-arquivos-sockets-linux]
 == Arquivos, Sockets e Linux 🐧
 
 Uma das grandes vantagens do Sistema Operacional Linux é que tudo são arquivos. Quase todas as funcionalidades do sistema operacional são expostas através de arquivos mapeados no sistema de arquivos. Assim ao invés de fazer uma chamada de sistema complexa para, por exemplo, obter o tempo que a máquina está em operação, basta ler o arquivo `/proc/uptime`. Ou ler o arquivo `/proc/cpuinfo` para obter uma série de informações sobre a CPU. 
@@ -43,6 +46,7 @@ Essa foi uma escolha arquitetural do sistema que se tornou bastante eficaz porqu
 
 Essa informação pode parecer perdida, mas ela tem uma relação profunda com o que veremos a seguir. Quando o Linux escolhe mapear tudo como arquivo, a escolha feita é por se tratar diversas formas de dados por uma mesma interface. Arquivos são fáceis de serem lidos, então ao expor tudo como arquivo é fácil conseguir acessar essas informações. A JVM também traz a mesma abordagem! Tudo em serialização vai se resumir a poucas classes. A operação de leitura de um arquivo ou leitura de um socket são tão semelhantes que podem ser executadas pelo mesmo código.
 
+[#cap-05-apresentacao-pacote]
 == Apresentação do pacote `java.io`
 
 Para entendermos o pacote `java.io` primeiro precisamos entender o que é um Stream (ou fluxo em tradução livre). Não confunda Stream de I/O com Stream de Collections, eles tem um conceito parecido, mas são aplicados em locais diferentes. Stream significa fluxo e quando falamos de Stream estamos falando de uma informação que flui em sentido único. 
@@ -246,6 +250,7 @@ Se você foi atento deve ter reparado que no diagrama de classe tem duas classes
 
 Para serializar um objeto eu devo usar a interface [`Serializable`](https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html)? Não! Você pode usar qualquer biblioteca com formatos de serialização que são compreendidos por várias linguagens. A interface `Serializable` é usada para serializar objetos que só podem ser carregados na JVM através das classes `ObjectInputStream` e `ObjectOutputStream`. MAS essas classes não deve ser usadas porque elas tem várias falhas de segurança que podem ser exploradas. Então resposta curta: **Não use essas classes!**
 
+[#cap-05-proximos-passos]
 == Próximos passos
 
 Eu espero que você tenha compreendido que como ler dados de várias fontes como arquivos ou sockets. Agora é hora de você aprender a usar bibliotecas de leituras de arquivos. Recomendo que você explore a biblioteca Jackson, assim como outras bibliotecas para se escrever JSON. Um bom exercício é comparar a performance de escrita entre várias bibliotecas e escolher a que você vai usar sempre.
