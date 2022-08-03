@@ -24,4 +24,10 @@ include::01-como-comecar.adoc[]
 
 include::02-sintaxe.adoc[]
 
+include::03-collections.adoc[]
+
+include::04-orientacao-objetos.adoc[]
+
+include::05-io.adoc[]
+
 :leveloffset: -1
