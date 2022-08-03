@@ -119,21 +119,31 @@ Porque eu citei o Java EE? Porque é provável que ao tentar fazer o download do
 
 Assim, ao iniciar o Workspace do Eclipse para Java você verá a opção para criar um novo projeto Java.
 
-![Criar novo projeto](/assets/images/java/eclipse-novo-projeto-1.png)
+[#eclipse-novo-projeto-1] 
+.Criar novo projeto - Atalho
+image::cap-01/eclipse-novo-projeto-1.png[align=center]
 
 Ao selecionar, você entrará no Wizard de criação de um novo projeto. Semelhantemente ao IntelliJ, você terá que escolher um nome para o projeto e um local, a diferença é que no Eclipse o local padrão é o workspace. Você não precisa criar o projeto no workspace, você pode usar qualquer diretório, mas será no workspace que o Eclipse salvará alguns arquivos que definem como você está usando o mesmo, por isso caso você tenha mais de um contexto de desenvolvimento, você pode usar vários workspaces e trocar quando necessitar trocar de contextos. Por exemplo, você tem o workspace do trabalho e o workspace da faculdade, ou um workspace para cada projeto que você está trabalhando.
 
 Você também pode selecionar a JDK que vai usar. Eu recomendo selecionar **Finish**, pois as outras telas do wizard são usadas para adicionar novas bibliotecas ou mudar a estrutura de diretórios do projeto.
 
-![Criar novo projeto](/assets/images/java/eclipse-novo-projeto-2.png)
+[#eclipse-novo-projeto-2] 
+.Criar novo projeto - Wizard
+image::cap-01/eclipse-novo-projeto-2.png[align=center]
 
 Da mesma forma que o IntelliJ você tem que selecionar o botão direito do mouse na pasta `src` e depois selecione **New → Java Class**.
 
 ![Criar novo projeto](/assets/images/java/eclipse-novo-projeto-3.png)
 
+[#eclipse-novo-projeto-3] 
+.Criando classe - Atalho
+image::cap-01/eclipse-novo-projeto-3.png[align=center]
+
 E por fim dar um nome a classe, mas diferente do IntelliJ, o Eclipse dá mais liberdade para criar a classe, como já adicionar o método `main`.
 
-![Criar novo projeto](/assets/images/java/eclipse-novo-projeto-4.png)
+[#eclipse-novo-projeto-4] 
+.Criando classe - Wizard
+image::cap-01/eclipse-novo-projeto-4.png[align=center]
 
 Com a classe, você também pode usar o **auto-complete**. Eu pessoalmente acho essa funcionalidade melhor no Eclipse que no IntelliJ. Aliás, se você usa VS Code, você está usando essa funcionalidade porque o VS Code usa o servidor de código do Eclipse.
 
@@ -197,7 +207,7 @@ Eu nunca tinha usado o Gradle e ele me parece bem mais fácil que o Maven. Você
 
 > **Aviso**
 >
-> Apesar de Maven usar XML, não se sinta intimidado. Eu deixe um exemplo com comentários. Caso você ainda ache difícil, manda um feedback aí com a sua dificuldade pelo twitter para [@vepo](twitter.com/vepo).
+> Apesar de Maven usar XML, não se sinta intimidado. Eu deixe um exemplo com comentários. Caso você ainda ache difícil, manda um feedback aí com a sua dificuldade pelo twitter para https://twitter.com/vepo[@vepo].
 
 Com o Maven você pode facilmente criar um projeto Java e compilar ele independente de IDE. O Maven também vai se encarregará de encontrar todas as dependências em suas versões e dependências. Então para criar um projeto Java basta criar um arquivo `pom.xml` e um arquivo Java, como na estrutura abaixo.
 
