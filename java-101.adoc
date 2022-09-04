@@ -32,4 +32,6 @@ include::04-orientacao-objetos.adoc[]
 
 include::05-io.adoc[]
 
+include::06-threads.adoc[]
+
 :leveloffset: -1
