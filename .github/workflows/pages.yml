@@ -34,7 +34,7 @@ jobs:
         uses: actions/configure-pages@v1
       - name: Get build container
         id: adocbuild
-        uses: tonynv/asciidoctor-action@master
+        uses: vepo/asciidoctor-action@master
         with:
           program: "asciidoctor --backend=html5 -o index.html java-101.adoc"
       - name: Upload artifact
@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build EPUB
-        uses: vepo/asciidoctor-action@v1.3
+        uses: vepo/asciidoctor-action@master
         with: 
           files: 'java-101.adoc'
           format: epub
